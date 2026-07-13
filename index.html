@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Invitaciones Digitales</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que el nombre coincida (style.css o styles.css) -->
+</head>
+<body>
+
+    <!-- BOTÓN DE MODO OSCURO FLOTANTE SUPERIOR -->
+    <button class="btn-modo-oscuro" onclick="toggleDarkMode()">
+        <img src="img/luna.png" alt="Modo Oscuro" id="icono-modo">
+    </button>
+
+    <header class="encabezado">
+        <h1>Catálogo de Invitaciones Digitales</h1>
+        <p>Diseños exclusivos para tus eventos especiales</p>
+    </header>
+
+        <!-- CUADRÍCULA DE DEMOS ULTRA MINIMALISTA (SIN PORTADAS CONGELADAS) -->
+    <main class="grid-catalogo">
+        
+        <!-- Tarjeta 1: Boda -->
+        <div class="tarjeta-invitacion">
+            <div class="info">
+                <h3>Invitación Elegante Boda</h3>
+                <p>Formato interactivo con mapa y confirmación de asistencia.</p>
+                <div class="botones-contenedor">
+                    <button class="btn-demo" onclick="abrirDemo('demos/demo-boda/index.html')">
+                        <img src="img/ver.png" alt="Ver"> Ver Demo
+                    </button>
+                    <a href="https://wa.me" class="btn-ordenar" target="_blank">Cotizar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2: XV Años -->
+        <div class="tarjeta-invitacion">
+            <div class="info">
+                <h3>Invitación Moderna XV Años</h3>
+                <p>Diseño con cuenta regresiva, música de fondo y galería.</p>
+                <div class="botones-contenedor">
+                    <button class="btn-demo" onclick="abrirDemo('demos/demo-xv/index.html')">
+                        <img src="img/ver.png" alt="Ver"> Ver Demo
+                    </button>
+                    <a href="https://wa.me" class="btn-ordenar" target="_blank">Cotizar</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- NUEVA SECCIÓN DE CARACTERÍSTICAS / DETALLES INCLUIDOS -->
+    <section class="seccion-detalles">
+        <h2>¿Qué incluyen nuestras invitaciones?</h2>
+        <p class="sub-detalles">Creamos experiencias interactivas diseñadas especialmente para tus invitados.</p>
+        
+        <div class="grid-detalles">
+            <!-- Detalle 1: Música -->
+            <div class="tarjeta-detalle">
+                <img src="img/musica-cat.png" alt="Música">
+                <h4>Música de Fondo</h4>
+                <p>Tu canción favorita sonará de fondo en formato instrumental premium al abrir la invitación.</p>
+            </div>
+
+            <!-- Detalle 2: Animaciones -->
+            <div class="tarjeta-detalle">
+                <img src="img/animacion.png" alt="Animaciones">
+                <h4>Animaciones Mágicas</h4>
+                <p>Efectos visuales fluidos como lluvia de pétalos o destellos que reaccionan al deslizar.</p>
+            </div>
+
+            <!-- Detalle 3: Galería -->
+            <div class="tarjeta-detalle">
+                <img src="img/galeria.png" alt="Galería">
+                <h4>Galería Fotográfica</h4>
+                <p>Sección dedicada para mostrar las mejores fotos de tu sesión previa al evento.</p>
+            </div>
+
+            <!-- Detalle 4: Cuenta Regresiva -->
+            <div class="tarjeta-detalle">
+                <img src="img/reloj-cat.png" alt="Reloj">
+                <h4>Cuenta Regresiva</h4>
+                <p>Un contador exacto en tiempo real que marca los días y segundos que faltan para el gran día.</p>
+            </div>
+
+            <!-- Detalle 5: Mapas GPS -->
+            <div class="tarjeta-detalle">
+                <img src="img/mapa-cat.png" alt="GPS">
+                <h4>Ubicaciones GPS</h4>
+                <p>Botones directos para abrir Waze o Google Maps y guiar a tus invitados a la iglesia o salón.</p>
+            </div>
+
+            <!-- Detalle 6: Código de Vestimenta -->
+            <div class="tarjeta-detalle">
+                <img src="img/gala-cat.png" alt="Dress Code">
+                <h4>Dress Code e Info</h4>
+                <p>Espacio para pases familiares dinámicos, mesa de regalos y especificación de vestimenta.</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- SECCIÓN EMOCIONAL CON ID CORREGIDO -->
+    <section class="seccion-emocional tarjeta-detalle">
+        <div class="contenedor-emocional">
+            <div class="icono-emocional">
+                <!-- LE AGREGAMOS EL ID EXACTO AQUÍ -->
+                <img src="img/corazon.png" alt="Corazón" id="icono-corazon">
+            </div>
+            <h2>Más que un diseño, una hermosa memoria</h2>
+            <div class="linea-gala"></div>
+            <p class="texto-emotivo">
+                Sabemos que detrás de cada boda y de cada quinceañera hay meses de sueños, ilusiones y un profundo amor familiar. Para nosotros, una invitación digital no es solo un enlace en el celular; es el primer gran paso hacia el día más inolvidable de tu vida.
+            </p>
+            <p class="texto-emotivo enfatizado">
+                Nuestra verdadera misión es cuidar cada detalle, cada melodía y cada destello para que tus invitados sientan la magia de tu celebración desde el primer segundo. Porque tu fiesta merece ser recordada para siempre.
+            </p>
+        </div>
+    </section>
+
+
+
+
+    <!-- VENTANA MODAL (Simulador de Celular) -->
+    <div id="modalDemo" class="modal-overlay">
+        <button class="btn-cerrar" onclick="cerrarDemo()">
+            <img src="img/cerrar.png" alt="Cerrar">
+        </button>
+        <div class="modal-celular">
+            <iframe id="iframeDemo" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- BOTÓN WHATSAPP FLOTANTE -->
+    <a href="https://wa.me" class="btn-whatsapp" target="_blank">
+        <img src="img/mensaje.png" alt="Mensaje"> ¿Dudas? Escríbeme
+    </a>
+
+    <!-- SCRIPT DEL MODO OSCURO Y MODAL -->
+    <script>
+        function abrirDemo(urlInvitacion) {
+            document.getElementById('iframeDemo').src = urlInvitacion;
+            document.getElementById('modalDemo').classList.add('activo');
+        }
+
+        function cerrarDemo() {
+            document.getElementById('modalDemo').classList.remove('activo');
+            // Forzamos al iframe a ponerse en blanco al cerrar para que se reactive el cargador la próxima vez
+            document.getElementById('iframeDemo').src = 'about:blank';
+        }
+
+
+        // Lógica de alternar entre modo claro y oscuro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icono = document.getElementById('icono-modo');
+            if (document.body.classList.contains('dark-mode')) {
+                icono.src = "img/sol.png"; // Cambia el icono a un sol si está oscuro
+            } else {
+                icono.src = "img/luna.png"; // Cambia a luna si está claro
+            }
+        }
+
+
+                // DETECTOR INTERACTIVO DE SCROLL (SCROLL REVEAL)
+        function verificarScroll() {
+            // Selecciona todas las tarjetas del portafolio y características
+            const elementos = document.querySelectorAll('.tarjeta-invitacion, .tarjeta-detalle');
+            
+            elementos.forEach(elemento => {
+                const posicionElemento = elemento.getBoundingClientRect().top;
+                const alturaPantalla = window.innerHeight * 0.92; // Se activa un poco antes de llegar al elemento
+                
+                // Si el elemento ya entró en la zona visible de la pantalla, se muestra
+                if (posicionElemento < alturaPantalla) {
+                    elemento.classList.add('visible');
+                }
+            });
+        }
+
+        // Escuchar el evento de movimiento del usuario y ejecutar al cargar la página
+        window.addEventListener('scroll', verificarScroll);
+        window.addEventListener('load', verificarScroll);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Script de Protección Intelectual y Anticlón -->
+<script>
+    // Bloquear clic derecho (Menú de inspección básico)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquear combinaciones de teclado de inspección (F12, Ctrl+Shift+I, Ctrl+U)
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 73) || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 74) || 
+            (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

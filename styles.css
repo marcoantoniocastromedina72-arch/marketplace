@@ -1,0 +1,575 @@
+/* ==========================================================================
+   VARIABLES GLOBALES Y TIPO DE FUENTE
+   ========================================================================== */
+:root {
+    /* Modo Claro (Por defecto) */
+    --fondo-sitio: #f8f9fa;
+    --fondo-tarjeta: #ffffff;
+    --texto-principal: #2c3e50;
+    --texto-secundario: #5a6065;
+    --oro-botones: #d4af37;
+    --oro-hover: #bfa030;
+    --whatsapp-verde: #25d366;
+    --sombra-premium: rgba(0, 0, 0, 0.08);
+}
+
+/* Reglas automáticas cuando se activa el Modo Oscuro vía JavaScript */
+body.dark-mode {
+    --fondo-sitio: #121212;
+    --fondo-tarjeta: #1e1e1e;
+    --texto-principal: #f8f9fa;
+    --texto-secundario: #b3b3b3;
+    --sombra-premium: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--fondo-sitio);
+    color: var(--texto-principal);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   BOTÓN MODO OSCURO (FLOTANTE SUPERIOR)
+   ========================================================================== */
+.btn-modo-oscuro {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1500;
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--oro-botones);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px var(--sombra-premium);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-modo-oscuro:hover {
+    transform: scale(1.08);
+}
+
+.btn-modo-oscuro img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   HEADER Y CUADRÍCULA DE INVITACIONES
+   ========================================================================== */
+.encabezado {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+}
+
+.encabezado h1 {
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+}
+
+.encabezado p {
+    color: var(--texto-secundario);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.grid-catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tarjeta-invitacion {
+    background-color: var(--fondo-tarjeta);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--sombra-premium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+}
+
+.tarjeta-invitacion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--sombra-premium);
+}
+
+.tarjeta-invitacion img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #eaeaea;
+}
+
+.info {
+    padding: 25px;
+}
+
+.info h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+}
+
+.info p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+}
+
+/* Botones de las tarjetas */
+.botones-contenedor {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-demo, .btn-ordenar {
+    flex: 1;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-demo {
+    background-color: #ebedef;
+    color: #2c3e50;
+}
+
+body.dark-mode .btn-demo {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.btn-demo:hover {
+    background-color: #d5dbdb;
+}
+
+body.dark-mode .btn-demo:hover {
+    background-color: #444444;
+}
+
+.btn-demo img {
+    width: 16px !important;
+    height: 16px !important;
+    object-fit: contain;
+}
+
+.btn-ordenar {
+    background-color: var(--oro-botones);
+    color: white;
+}
+
+.btn-ordenar:hover {
+    background-color: var(--oro-hover);
+}
+
+/* ==========================================================================
+   NUEVA SECCIÓN: DETALLES Y CARACTERÍSTICAS
+   ========================================================================== */
+.seccion-detalles {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.seccion-detalles h2 {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+}
+
+.sub-detalles {
+    color: var(--texto-secundario);
+    font-size: 1.05rem;
+    margin: 0 0 50px 0;
+}
+
+.grid-detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta-detalle {
+    background-color: var(--fondo-tarjeta);
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--sombra-premium);
+    text-align: center;
+    border-top: 3px solid var(--oro-botones);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tarjeta-detalle:hover {
+    transform: translateY(-3px);
+}
+
+.tarjeta-detalle img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.tarjeta-detalle h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.tarjeta-detalle p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   SIMULADOR DE CELULAR (MODAL) Y WHATSAPP FLOTANTE
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-celular {
+    position: relative;
+    width: 360px;
+    height: 720px;
+    background: #000;
+    border: 12px solid #222;
+    border-radius: 36px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.modal-celular iframe {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.btn-cerrar {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3000;
+    transition: transform 0.2s ease;
+}
+
+.btn-cerrar:hover {
+    transform: scale(1.1);
+}
+
+.btn-cerrar img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--whatsapp-verde);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn-whatsapp img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+
+/* ==========================================================================
+   ALGORITMO DE SUAVIZADO HD PARA ICONOS DE ALTA RESOLUCIÓN
+   ========================================================================== */
+.btn-demo img, 
+.btn-whatsapp img, 
+.btn-modo-oscuro img,
+.btn-cerrar img,
+.tarjeta-detalle img,
+.lista-incluye li img {
+    /* Desactiva el filtro borroso pero mantiene los bordes curvos y suaves */
+    image-rendering: -webkit-optimize-contrast !important; /* Optimización para Chrome/Celulares */
+    image-rendering: crisp-edges !important;               /* Optimización para monitores premium */
+    
+    /* Evita que el navegador deforme la imagen al hacerla pequeña */
+    object-fit: contain;
+}
+
+
+
+/* ==========================================================================
+   SISTEMA DE FILTROS CROMÁTICOS MAESTRO CON IDENTIFICADORES ÚNICOS
+   ========================================================================== */
+
+/* 1. Solo invertimos los botones que originalmente son negros y ocupan pasar a blanco */
+body.dark-mode .btn-demo img,
+body.dark-mode .btn-whatsapp img {
+    filter: invert(1) brightness(2) !important;
+    transition: filter 0.3s ease;
+}
+
+/* 2. Forzar que la equis de cierre del simulador pase a blanco puro */
+body.dark-mode .btn-cerrar img {
+    filter: invert(100%) !important;
+}
+
+/* 3. ☀️ BLINDAJE PARA EL SOL / LUNA (USA EL ID #icono-modo) */
+#icono-modo,
+body.dark-mode #icono-modo {
+    filter: none !important; /* Cero filtros matemáticos, mantiene su dorado original */
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 4. 💖 BLINDAJE PARA EL CORAZÓN SENTIMENTAL (USA EL ID #icono-corazon) */
+#icono-corazon,
+body.dark-mode #icono-corazon {
+    filter: none !important; /* Destruye cualquier filtro azul o inversión por completo */
+    background: transparent !important;
+    box-shadow: none !important;
+    display: inline-block !important;
+}
+
+/* 5. 🌸 BLINDAJE PARA LAS 6 CARACTERÍSTICAS DEL PORTAFOLIO */
+.grid-detalles .tarjeta-detalle img,
+body.dark-mode .grid-detalles .tarjeta-detalle img {
+    filter: none !important; /* Protege tus 6 iconos dorados de 256px */
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   NUEVAS MEJORAS: ANIMACIONES DE ENTRADA (SCROLL REVEAL)
+   ========================================================================== */
+
+/* Animación base para que las tarjetas suban y aparezcan suavemente */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL CORREGIDO: MOVIMIENTO ASCENDENTE AMPLIO Y FLUIDO
+   ========================================================================== */
+
+/* Todos los elementos nacen ocultos y MUCHO más abajo para un recorrido dramático */
+.tarjeta-invitacion, .tarjeta-detalle, .seccion-emocional {
+    opacity: 0;
+    transform: translateY(80px); /* Aumentado de 30px a 80px para que se note el subidón */
+    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) !important;
+}
+
+/* Esta clase se activa con JavaScript al bajar el scroll */
+.tarjeta-invitacion.visible, .tarjeta-detalle.visible, .seccion-emocional.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Forzar que el bloque sentimental tenga su animación súper poética y amplia */
+.seccion-emocional.tarjeta-detalle {
+    opacity: 0;
+    transform: translateY(100px) !important; /* El bloque de texto sube aún más desde abajo */
+}
+
+.seccion-emocional.tarjeta-detalle.visible {
+    opacity: 1;
+    transform: translateY(0) !important;
+}
+
+
+
+/* Retrasos en cascada calculados al milisegundo para las tarjetas de abajo */
+.grid-detalles .tarjeta-detalle:nth-child(1) { transition-delay: 0.0s; }
+.grid-detalles .tarjeta-detalle:nth-child(2) { transition-delay: 0.15s; }
+.grid-detalles .tarjeta-detalle:nth-child(3) { transition-delay: 0.3s; }
+.grid-detalles .tarjeta-detalle:nth-child(4) { transition-delay: 0.45s; }
+.grid-detalles .tarjeta-detalle:nth-child(5) { transition-delay: 0.6s; }
+.grid-detalles .tarjeta-detalle:nth-child(6) { transition-delay: 0.75s; }
+
+/* ==========================================================================
+   NUEVAS MEJORAS: EFECTO DE CARGA ELEGANTE (SIMULADOR CELULAR)
+   ========================================================================== */
+
+/* Forzar un color de fondo de carga dentro del marco del celular */
+.modal-celular {
+    background-color: #1a1a1a !important; /* Evita el chispazo blanco antes de cargar el iframe */
+    position: relative;
+}
+
+/* Spinner dorado giratorio que simula una carga de App Real */
+.modal-celular::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border: 3px solid rgba(212, 175, 55, 0.1);
+    border-top: 3px solid var(--oro-botones);
+    border-radius: 50%;
+    animation: girarLoader 0.8s linear infinite;
+    z-index: 1; /* Se dibuja detrás del iframe cuando este ya cargó */
+}
+
+@keyframes girarLoader {
+    0% { transform: rotate(0deg); }
+    100% { rotate: 360deg; }
+}
+
+/* Forzar al iframe a ocultarse de golpe si el modal no está activo */
+.modal-celular iframe {
+    position: relative;
+    z-index: 2; /* Pasa por encima del cargador en cuanto tiene contenido */
+    background: transparent;
+    transition: opacity 0.3s ease;
+}
+
+
+/* ==========================================================================
+   NUEVAS MEJORAS: SECCIÓN INTERACTIVA EMOCIONAL
+   ========================================================================== */
+.seccion-emocional {
+    padding: 90px 24px;
+    background: linear-gradient(180deg, var(--fondo-tarjeta) 0%, rgba(249, 235, 230, 0.3) 100%);
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    transition: background 0.3s ease;
+}
+
+.contenedor-emocional {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.icono-emocional img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: invert(70%) sepia(20%) saturate(1000%) hue-rotate(5deg); /* Tono oro suave */
+}
+
+body.dark-mode .icono-emocional img {
+    filter: invert(1) brightness(2) !important;
+}
+
+.seccion-emocional h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+    color: var(--texto-principal);
+}
+
+.linea-gala {
+    width: 60px;
+    height: 1px;
+    background-color: var(--oro-botones);
+    margin: 0 auto 35px auto;
+}
+
+.texto-emotivo {
+    font-family: Georgia, serif; /* Usamos una fuente con serifa clásica para el texto sentimental */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.texto-emotivo.enfatizado {
+    font-weight: 600;
+    color: var(--texto-principal);
+    margin-bottom: 0;
+}
+
+
+
+
+/* Bloqueo de selección de texto y arrastre de imágenes */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Estándar */
+}
+
+
+/* Blindaje limpio contra arrastre de iconos HD */
+img {
+    -webkit-user-drag: none; /* Compatible con el 99% de los navegadores y móviles */
+}

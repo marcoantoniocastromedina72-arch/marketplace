@@ -1,0 +1,576 @@
+:root {
+    --marfil-sedoso: #faf9f5;    /* Fondo crema / blanco roto de alta gama */
+    --oro-champagne: #bfa37a;    /* Oro sobrio estilo joyería fina */
+    --oro-brillante: #d4af37;    /* Detalles metálicos de realce */
+    --texto-editorial: #1a1a1a;  /* Negro absoluto para máxima elegancia */
+    --texto-suave: #555555;      /* Gris Oxford para descripciones */
+    --blanco-cristal: rgba(255, 255, 255, 0.95);
+    --rose-gold-medio: #e5b3a8;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--marfil-sedoso);
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--texto-editorial);
+    text-align: center;
+    overflow-x: hidden;
+    letter-spacing: 0.5px;
+}
+
+/* Contenedor responsivo que blinda el ancho de las tarjetas en móviles y pantallas grandes */
+.contenedor-global {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ALGORITMO DE SUAVIZADO HD PARA ICONOS DE 256PX
+   ========================================================================== */
+.icono-png-titulo {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 10px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.icono-png-boton {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.icono-png-decorativo {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    margin: 25px auto;
+    animation: brillar 2.5s infinite ease-in-out;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    display: block;
+}
+
+/* ==========================================================================
+   ESTILOS DE SECCIONES Y PORTADA IMPERIAL
+   ========================================================================== */
+h2 {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 500 !important;
+    font-size: 1.3rem !important;
+    letter-spacing: 4px !important;
+    text-transform: uppercase !important;
+    color: var(--oro-champagne) !important;
+    margin: 45px auto 25px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seccion {
+    padding: 50px 24px;
+    box-sizing: border-box;
+}
+
+/* Modificadores estructurales para fondos extendidos de lado a lado */
+.faja-fondo-suave {
+    background-color: #f4f2ec;
+    width: 100%;
+}
+
+.no-padding-vertical {
+    padding-top: 15px !important;
+    padding-bottom: 40px !important;
+}
+
+/* Portada estilo tipográfico Vogue - Fondo HD de bodas real integrado */
+.portada-gala {
+    min-height: 100vh;
+    background: linear-gradient(rgba(26, 26, 26, 0.25), rgba(26, 26, 26, 0.4)), 
+                url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.marco-interior {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 88%;
+    max-width: 380px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Selector aislado para evitar conflicto con los h2 globales */
+.marco-interior .subtitulo-portada {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic !important;
+    font-size: 2.2rem !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    font-weight: 300 !important;
+    text-transform: none !important;
+    letter-spacing: 1px !important;
+    display: block !important;
+}
+
+.marco-interior h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.9rem;
+    letter-spacing: 3px;
+    margin: 20px 0;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.linea-separadora {
+    width: 35px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 15px auto;
+}
+
+.marco-interior p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ==========================================================================
+   TARJETAS Y BLOQUES TEXTUALES
+   ========================================================================== */
+.frase-emocional {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic !important;
+    font-size: 1.4rem !important;
+    color: var(--texto-editorial);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.contador-caja {
+    background: white;
+    border: 1px solid #e6e1da;
+    padding: 40px 20px;
+    margin-top: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.contador-caja h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0 0 25px 0;
+    color: var(--oro-champagne);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reloj-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.numero-reloj {
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: var(--texto-editorial);
+}
+
+.etiqueta-reloj {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--texto-suave);
+    margin-top: 6px;
+    display: block;
+    opacity: 0.8;
+}
+
+.tarjeta-premium {
+    background: white;
+    border: 1px solid #e6e1da;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    box-sizing: border-box;
+}
+
+.tarjeta-premium h3 {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 400 !important;
+    font-size: 1.15rem !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    color: var(--texto-editorial);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarjeta-premium h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--oro-champagne);
+    margin: 25px 0 8px 0;
+    font-weight: 600;
+}
+
+.tarjeta-premium p, .seccion p {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.25rem !important;
+    line-height: 1.6;
+    margin: 6px 0;
+    color: var(--texto-suave);
+}
+
+.hora-evento {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: var(--oro-champagne);
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.no-border {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 20px 10px !important;
+}
+
+/* ==========================================================================
+   BOTONES FORMALES E INTERACTIVOS
+   ========================================================================== */
+.btn-premium-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--texto-editorial);
+    color: var(--texto-editorial);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: 600;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-premium-link:hover {
+    background: var(--texto-editorial);
+    color: white;
+}
+
+.line-top-gold {
+    border-top: 3px solid var(--oro-champagne);
+}
+
+.dress-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--texto-editorial) !important;
+}
+
+.nota-alerta {
+    color: #a63a3a;
+    font-weight: 600;
+}
+
+.btn-copiar {
+    display: inline-flex;
+    align-items: center;
+    background: var(--oro-champagne);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0;
+    transition: background 0.2s;
+}
+
+.btn-copiar:hover {
+    background: #a68c65;
+}
+
+.btn-rsvp-gala {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--texto-editorial);
+    color: white;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-rsvp-gala:hover {
+    transform: translateY(-2px);
+    background: #333333;
+}
+
+/* ==========================================================================
+   REPRODUCTOR Y ELEMENTOS FLOTANTES
+   ========================================================================== */
+.reproductor-premium {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--blanco-cristal);
+    border: 1px solid #efeae4;
+    padding: 10px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--texto-editorial);
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.seccion-salir {
+    padding: 30px 24px 50px 24px;
+}
+
+.btn-salir-link {
+    background: transparent;
+    color: var(--texto-suave);
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Toast Notificador Premium */
+.toast-premium {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--marfil-sedoso);
+    color: var(--texto-editorial);
+    border: 1px solid var(--oro-champagne);
+    padding: 14px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    white-space: nowrap;
+}
+
+.toast-premium.mostrar-toast {
+    bottom: 30px;
+}
+
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
+@keyframes brillar {
+    0% { opacity: 0.6; transform: scale(0.97); }
+    50% { opacity: 1; transform: scale(1.03); }
+    100% { opacity: 0.6; transform: scale(0.97); }
+}
+
+/* ==========================================================================
+   EFECTO CASCADA PREMIUM (SCROLL REVEAL)
+   ========================================================================== */
+/* Estado inicial: los elementos están ocultos, abajo y transparentes */
+.revelar-cascada {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), 
+                transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+/* Estado activo: cuando el usuario hace scroll, emergen con suavidad */
+.revelar-cascada.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retrasos de tiempo (Delays) para crear el efecto escalonado/cascada */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+
+/* ==========================================================================
+   ITINERARIO / CRONOLOGÍA DE ULTRA LUJO
+   ========================================================================== */
+.cronologia-linea {
+    position: relative;
+    max-width: 360px;
+    margin: 40px auto 20px auto;
+    padding: 10px 0;
+    text-align: left;
+}
+
+/* La línea dorada central */
+.cronologia-linea::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--oro-champagne) 15%, var(--oro-champagne) 85%, transparent);
+}
+
+.cronologia-item {
+    position: relative;
+    margin-bottom: 35px;
+    padding-left: 50px;
+}
+
+.cronologia-item:last-child {
+    margin-bottom: 0;
+}
+
+/* El nodo o gema dorada */
+.cronologia-punto {
+    position: absolute;
+    left: 16px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    background-color: var(--marfil-sedoso);
+    border: 1px solid var(--oro-champagne);
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 0 0 8px rgba(191, 163, 122, 0.4);
+}
+
+.cronologia-contenido {
+    background: white;
+    border: 1px solid #e6e1da;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.cronologia-hora {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: var(--oro-champagne);
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cronologia-contenido h3 {
+    font-family: 'Cinzel', serif !important;
+    font-size: 0.95rem !important;
+    margin: 0 0 5px 0 !important;
+    letter-spacing: 1px !important;
+    justify-content: flex-start !important;
+    color: var(--texto-editorial) !important;
+}
+
+.cronologia-contenido p {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    color: var(--texto-suave) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Bloqueo de selección de texto y arrastre de imágenes */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Estándar */
+}
+
+/* Blindaje limpio contra arrastre de iconos HD */
+img {
+    -webkit-user-drag: none; /* Compatible con el 99% de los navegadores y móviles */
+}
+
+
+
+
+
+
+
+

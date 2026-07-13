@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Amelia & Alejandro</title>
+    <!-- Corrección de URLs Oficiales de Google Fonts para Carga HD Ultra Rápida -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Enlace a tu archivo CSS interno -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notificación Toast de Alta Costura (Reemplaza los Alerts feos del sistema) -->
+    <div id="toast-premium" class="toast-premium">
+        <img src="img/copiar.png" alt="Copiado" class="icono-png-boton"> ¡CLABE COPIADA CON ÉXITO!
+    </div>
+
+    <!-- Reproductor de música flotante con icono PNG local -->
+    <button class="reproductor-premium" onclick="toggleMusica()">
+        <img src="img/musica.png" alt="Música" class="icono-png-boton"> <span id="txt-musica">MÚSICA • OFF</span>
+    </button>
+    <!-- Enlace de audio de respaldo totalmente funcional y directo -->
+    <audio id="musica" src="https://soundhelix.com" loop></audio>
+
+    <!-- 1. PORTADA EDITORIAL (Estilo Vogue / Tiffany) -->
+    <section class="portada-gala">
+        <div class="marco-interior">
+            <h2 class="subtitulo-portada">Nuestra Boda</h2>
+            <h1>Amelia & Alejandro</h1>
+            <div class="linea-separadora"></div>
+            <p>31 • Diciembre • 2026</p>
+        </div>
+    </section>
+
+        <!-- Contenedor centralizado para mantener el formato elegante en móviles -->
+    <div class="contenedor-global">
+
+        <!-- 2. FRASE Y CONTADOR -->
+        <section class="seccion">
+            <p class="frase-emocional revelar-cascada">"Dos vidas, dos corazones, un solo camino hacia el infinito..."</p>
+            <div class="separador-icono revelar-cascada delay-1"><img src="img/estrella.png" alt="Destello" class="icono-png-decorativo"></div>
+            
+            <div class="contador-caja revelar-cascada delay-2">
+                <h4><img src="img/reloj.png" alt="Reloj" class="icono-png-titulo"> Cada segundo cuenta</h4>
+                <div class="reloj-flex">
+                    <div class="bloque-tiempo"><span class="numero-reloj" id="dias">00</span><span class="etiqueta-reloj">Días</span></div>
+                    <div class="bloque-tiempo"><span class="numero-reloj" id="horas">00</span><span class="etiqueta-reloj">Horas</span></div>
+                    <div class="bloque-tiempo"><span class="numero-reloj" id="minutos">00</span><span class="etiqueta-reloj">Min</span></div>
+                    <div class="bloque-tiempo"><span class="numero-reloj" id="segundos">00</span><span class="etiqueta-reloj">Seg</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PADRES Y PADRINOS -->
+        <section class="seccion">
+            <div class="tarjeta-premium revelar-cascada">
+                <h3><img src="img/corazon.png" alt="Bendición" class="icono-png-titulo"> Con la bendición de</h3>
+                <h4 class="revelar-cascada delay-1">Padres de la Novia</h4>
+                <p class="revelar-cascada delay-1">Guillermo Mendoza Silva</p>
+                <p class="revelar-cascada delay-1">Isabel Rostova de Mendoza</p>
+                
+                <h4 class="revelar-cascada delay-2">Padres del Novio</h4>
+                <p class="revelar-cascada delay-2">Francisco Castro Gómez</p>
+                <p class="revelar-cascada delay-2">Mariana Luna de Castro</p>
+            </div>
+        </section>
+
+    </div> <!-- Fin contenedor-global -->
+
+    <!-- 4. UBICACIONES SEPARADAS (Fondo suave estirado al 100% de la pantalla) -->
+    <div class="faja-fondo-suave">
+        <div class="contenedor-global">
+            <section class="seccion no-padding-vertical">
+                <h2 class="revelar-cascada"><img src="img/mapa.png" alt="Mapa" class="icono-png-titulo"> La Celebración</h2>
+                
+                <!-- La primera ubicación aparece de inmediato con delay-1 -->
+                <div class="tarjeta-premium revelar-cascada delay-1">
+                    <span class="hora-evento">17:00 HRS</span>
+                    <h3>Ceremonia Religiosa</h3>
+                    <p class="lugar-texto">Parroquia de Santa María del Bosque</p>
+                    <p class="direccion-texto">Av. de los Olivos #102, Zona Residencial</p>
+                    <a href="https://google.com" target="_blank" class="btn-premium-link">
+                        <img src="img/gps.png" alt="GPS" class="icono-png-boton"> Ver Mapa de la Iglesia
+                    </a>
+                </div>
+
+                <!-- La segunda tarjeta se desfasa un instante después creando el efecto cascada perfecto -->
+                <div class="tarjeta-premium revelar-cascada delay-2">
+                    <span class="hora-evento">19:30 HRS</span>
+                    <h3>Recepción de Gala</h3>
+                    <p class="lugar-texto">Jardín Botánico Praderas Doradas</p>
+                    <p class="direccion-texto">Km 8.2 Carretera Antigua al Mirador</p>
+                    <a href="https://google.com" target="_blank" class="btn-premium-link">
+                        <img src="img/gps.png" alt="GPS" class="icono-png-boton"> ¿Cómo llegar al Jardín?
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="contenedor-global">
+
+        <!-- ITINERARIO INTERACTIVO DE GALA -->
+    <div class="faja-fondo-suave">
+        <div class="contenedor-global">
+            <section class="seccion no-padding-vertical">
+                <h2 class="revelar-cascada"><img src="img/reloj.png" alt="Itinerario" class="icono-png-titulo"> Itinerario del Día</h2>
+                
+                <div class="cronologia-linea">
+                    
+                    <!-- Evento 1 -->
+                    <div class="cronologia-item revelar-cascada delay-1">
+                        <div class="cronologia-punto"></div>
+                        <div class="cronologia-contenido">
+                            <span class="cronologia-hora">17:00 HRS</span>
+                            <h3>Misa de Gala</h3>
+                            <p>Parroquia de Santa María</p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 2 -->
+                    <div class="cronologia-item revelar-cascada delay-2">
+                        <div class="cronologia-punto"></div>
+                        <div class="cronologia-contenido">
+                            <span class="cronologia-hora">19:30 HRS</span>
+                            <h3>Recepción & Cóctel</h3>
+                            <p>Jardín Praderas Doradas</p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 3 -->
+                    <div class="cronologia-item revelar-cascada delay-3">
+                        <div class="cronologia-punto"></div>
+                        <div class="cronologia-contenido">
+                            <span class="cronologia-hora">21:00 HRS</span>
+                            <h3>Banquete Imperial</h3>
+                            <p>Salón de los Espejos</p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 4 -->
+                    <div class="cronologia-item revelar-cascada delay-4">
+                        <div class="cronologia-punto"></div>
+                        <div class="cronologia-contenido">
+                            <span class="cronologia-hora">23:00 HRS</span>
+                            <h3>Gran Baile & Fiesta</h3>
+                            <p>Pista Central de Gala</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    
+
+        <!-- 5. DRESS CODE -->
+        <section class="seccion">
+            <div class="tarjeta-premium line-top-gold revelar-cascada">
+                <h3><img src="img/gala.png" alt="Gala" class="icono-png-titulo"> Código de Vestimenta</h3>
+                <p class="dress-title revelar-cascada delay-1">RIGUROSA GALA</p>
+                <p class="dress-desc revelar-cascada delay-2">
+                    Hombres: Esmoquin o Traje Oscuro Formal.<br>
+                    Mujeres: Vestido Largo de Gala.<br>
+                    <span class="nota-alerta">Nota:</span> Agradecemos evitar el color blanco, exclusivo para la novia.
+                </p>
+            </div>
+        </section>
+
+    </div> <!-- Fin contenedor-global -->
+
+    <!-- 6. MESA DE REGALOS (Faja extendida) -->
+    <div class="faja-fondo-suave">
+        <div class="contenedor-global">
+            <section class="seccion no-padding-vertical">
+                <h2 class="revelar-cascada"><img src="img/regalo.png" alt="Regalo" class="icono-png-titulo"> Mesa de Regalos</h2>
+                <div class="tarjeta-premium no-border revelar-cascada delay-1">
+                    <p class="regalo-frase">"Su presencia en nuestra boda es el mejor regalo. Pero si desean tener un detalle con nosotros, apreciamos su apoyo mediante transferencia bancaria."</p>
+                    <div class="datos-banco revelar-cascada delay-2">
+                        <p><strong>Banco:</strong> Citibanamex</p>
+                        <!-- Almacenamos los datos fragmentados o en atributos seguros -->
+                        <p><strong>CLABE:</strong> <span id="clabe-num" data-vault="098765" data-secure="432109" data-key="876543">•••• •••• •••• ••</span></p>
+
+                        <button class="btn-copiar" onclick="copiarClabe()">
+                            <img src="img/copiar.png" alt="Copiar" class="icono-png-boton"> Copiar CLABE
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="contenedor-global">
+
+        <!-- 7. RSVP CON TEXTO PRE-LLENADO FORMAL -->
+        <section class="seccion">
+            <h2 class="revelar-cascada"><img src="img/calendario.png" alt="Confirmar" class="icono-png-titulo"> R.S.V.P.</h2>
+            <p class="rsvp-texto revelar-cascada delay-1">Favor de confirmar su grata asistencia antes del 15 de Noviembre.</p>
+            <!-- WhatsApp estructurado profesionalmente y animado -->
+            <!-- Quitamos el número del enlace directo -->
+            <a href="#" id="btn-rsvp-seguro" class="btn-rsvp-gala">
+                <img src="img/whatsapp.png" alt="WhatsApp" class="icono-png-boton"> Confirmar Asistencia
+            </a>
+
+        </section>
+
+        <!-- 8. RETORNO CON CONTROL DE FRAMEWORK -->
+        <section class="seccion-salir revelar-cascada">
+            <button onclick="window.parent.cerrarDemo ? window.parent.cerrarDemo() : window.history.back()" class="btn-salir-link">
+                <img src="img/regresar.png" alt="Regresar" class="icono-png-boton"> Volver al Catálogo
+            </button>
+        </section>
+
+    </div> <!-- Fin contenedor-global -->
+
+
+    <!-- SCRIPTS DE CONTROL ULTRA-PREMIUM -->
+    <script>
+        function toggleMusica() {
+            var audio = document.getElementById('musica');
+            var txt = document.getElementById('txt-musica');
+            if (audio.paused) { 
+                audio.play().catch(e => console.log("Interacción requerida primero.")); 
+                txt.innerText = "MÚSICA • ON"; 
+            } else { 
+                audio.pause(); 
+                txt.innerText = "MÚSICA • OFF"; 
+            }
+        }
+
+        function copiarClabe() {
+    const vault = document.getElementById('clabe-num');
+    // Une los fragmentos ocultos en memoria en un solo segundo
+    const clabeReal = vault.getAttribute('data-vault') + vault.getAttribute('data-secure') + vault.getAttribute('data-key');
+    
+    navigator.clipboard.writeText(clabeReal).then(() => {
+        const toast = document.getElementById('toast-premium');
+        toast.classList.add('mostrar-toast');
+        setTimeout(() => { toast.classList.remove('mostrar-toast'); }, 2500);
+    });
+}
+
+
+        // Cuenta regresiva optimizada con relleno de ceros simétrico (.padStart)
+        const fechaEvento = new Date('Dec 31, 2026 17:00:00').getTime();
+        setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaEvento - ahora;
+            
+            if (distancia < 0) return; // Detener si llegó la fecha
+
+            const d = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById('dias').innerText = String(d).padStart(2, '0');
+            document.getElementById('horas').innerText = String(h).padStart(2, '0');
+            document.getElementById('minutos').innerText = String(m).padStart(2, '0');
+            document.getElementById('segundos').innerText = String(s).padStart(2, '0');
+        }, 1000);
+
+                // Motor de Scroll Revelación en Cascada Ultra-Premium
+        document.addEventListener("DOMContentLoaded", function () {
+            const elementosOcultos = document.querySelectorAll(".revelar-cascada");
+
+            const opcionesObserver = {
+                root: null, // Usa la pantalla completa como marco de referencia
+                rootMargin: "0px 0px -60px 0px", // Se activa 60px antes de que aparezca en pantalla
+                threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+            };
+
+            const observer = new IntersectionObserver(function (entradas, observer) {
+                entradas.forEach(entrada => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add("activo");
+                        // Opcional: deja de observar el elemento si solo quieres que anime una vez
+                        observer.unobserve(entrada.target); 
+                    }
+                });
+            }, opcionesObserver);
+
+            elementosOcultos.forEach(el => observer.observe(el));
+        });
+
+        document.getElementById('btn-rsvp-seguro').addEventListener('click', function(e) {
+        e.preventDefault();
+        const lada = "521";
+        const numero = "234567890"; // Reemplaza por el real de tu cliente
+        const texto = encodeURIComponent("Hola, confirmo mi asistencia a la Gala.");
+        window.open(`https://wa.me{lada}${numero}?text=${texto}`, '_blank');
+});
+
+
+    </script>
+
+
+
+
+
+
+
+
+<!-- Script de Protección Intelectual y Anticlón -->
+<script>
+    // Bloquear clic derecho (Menú de inspección básico)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquear combinaciones de teclado de inspección (F12, Ctrl+Shift+I, Ctrl+U)
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 73) || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 74) || 
+            (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

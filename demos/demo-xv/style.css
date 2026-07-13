@@ -1,0 +1,302 @@
+/* ==========================================================================
+   VARIABLES ULTRA FRESH (XV AÑOS RADICALMENTE DISTINTOS)
+   ========================================================================== */
+:root {
+    --rosa-glam-fondo: #fcf6f7;     /* Fondo suave juvenil */
+    --rosa-card-inner: #ffffff;     /* Blanco puro para contraste de cajas */
+    --faja-quiebre: #f5e4e7;         /* Tonalidad rosa intermedia */
+    --oro-champagne: #bfa37a;       /* Oro sofisticado */
+    --texto-dark: #121212;          /* Texto principal */
+    --texto-muted: #5a5a5a;         /* Descripciones */
+    --rosa-prohibido: #f4cfd4;      /* Color del círculo de advertencia */
+}
+
+html, body {
+    height: 100%; margin: 0; padding: 0;
+    background-color: var(--rosa-glam-fondo);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto-dark);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.contenedor-global {
+    max-width: 440px; margin: 0 auto; padding: 0; box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ALGORITMO DE SUAVIZADO HD PARA ICONOS DE 256PX
+   ========================================================================== */
+.icono-png-titulo {
+    width: 22px; height: 22px; object-fit: contain; vertical-align: middle;
+    margin-right: 8px; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;
+}
+
+.icono-png-boton {
+    width: 15px; height: 15px; object-fit: contain; vertical-align: middle;
+    margin-right: 6px; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;
+}
+
+.icono-png-decorativo {
+    width: 24px; height: 24px; object-fit: contain; margin: 20px auto;
+    animation: brillar 3s infinite ease-in-out; display: block;
+}
+
+/* ==========================================================================
+   PORTADA "GLAM-CARD" (DISEÑO TOTALMENTE ASIMÉTRICO)
+   ========================================================================== */
+.portada-glam {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.25)), 
+                url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.tarjeta-flotante-portada {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 45px 25px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateY(10px);
+}
+
+.tag-juventud {
+    font-size: 0.6rem; letter-spacing: 4px; font-weight: 700; color: var(--oro-champagne); display: block; margin-bottom: 12px;
+}
+
+.tarjeta-flotante-portada h1 {
+    font-family: 'Cinzel', serif; font-size: 2.3rem; margin: 0; font-weight: 700; color: var(--texto-dark); letter-spacing: 1px;
+}
+
+.badge-oro {
+    display: inline-block; background: var(--oro-champagne); color: white;
+    font-size: 0.65rem; padding: 4px 16px; letter-spacing: 3px; font-weight: 500; margin: 15px 0; border-radius: 50px;
+}
+
+.fecha-gala {
+    font-size: 0.8rem; letter-spacing: 5px; color: var(--texto-muted); margin: 0; font-weight: 500;
+}
+
+/* ==========================================================================
+   FRASE Y CONTADOR JUVENIL (DISEÑO CIRCULAR)
+   ========================================================================== */
+.seccion { padding: 45px 24px; box-sizing: border-box; }
+.faja-alterna { background-color: var(--faja-quiebre); width: 100%; }
+
+.frase-juvenil {
+    font-size: 1.15rem; line-height: 1.7; font-weight: 300; color: var(--texto-dark); margin: 0; font-style: italic;
+}
+
+.reloj-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 360px; margin: 30px auto 0 auto;
+}
+
+.circulo-tiempo {
+    background: var(--rosa-card-inner); border-radius: 50%; aspect-ratio: 1;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    box-shadow: 0 8px 20px rgba(191, 163, 122, 0.1); border: 1px solid #fae2e6;
+}
+
+.circulo-tiempo span {
+    font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: var(--texto-dark);
+}
+
+.circulo-tiempo p, .seg-label {
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-muted); margin: 2px 0 0 0; font-weight: 600;
+}
+
+/* ==========================================================================
+   BLOQUES DE HONOR E ITINERARIOS TIPO CARD
+   ========================================================================== */
+.bloque-honor {
+    background: var(--rosa-card-inner); padding: 35px 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+}
+
+h2 {
+    font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--oro-champagne); letter-spacing: 3px;
+    text-transform: uppercase; margin: 0 auto; display: flex; align-items: center; justify-content: center;
+}
+
+.linea-gala-corta { width: 30px; height: 2px; background: var(--oro-champagne); margin: 15px auto; }
+.honor-flex { display: flex; justify-content: space-between; margin-top: 20px; }
+.honor-col { width: 48%; text-align: center; }
+.honor-col h5 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 8px 0; color: var(--oro-champagne); }
+.honor-col p { font-size: 0.9rem; margin: 4px 0; color: var(--texto-muted); font-weight: 400; }
+
+/* Tarjetas de Itinerario Independientes */
+.tarjeta-itinerario-xv {
+    background: var(--rosa-card-inner); border-radius: 12px; padding: 30px 20px; margin-bottom: 20px;
+    text-align: left; box-shadow: 0 8px 20px rgba(0,0,0,0.02); border-left: 4px solid var(--oro-champagne); position: relative;
+}
+
+.badge-hora-xv {
+    position: absolute; top: 20px; right: 20px; font-size: 0.65rem; font-weight: 700;
+    color: var(--oro-champagne); letter-spacing: 1px; background: #fffaf0; padding: 4px 10px; border-radius: 4px;
+}
+
+.tarjeta-itinerario-xv h3 { font-family: 'Cinzel', serif; font-size: 1rem; margin: 0 0 6px 0; letter-spacing: 0.5px; }
+.tarjeta-itinerario-xv p { font-size: 0.9rem; color: var(--texto-muted); margin: 0 0 15px 0; font-weight: 300; }
+
+.btn-mapa-xv {
+    display: inline-flex; align-items: center; text-decoration: none; color: var(--texto-dark);
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; border: 1px solid var(--texto-dark); padding: 8px 16px; border-radius: 4px;
+}
+
+/* ==========================================================================
+   DRESS CODE Y WISHLIST INTERACTIVA
+   ========================================================================== */
+.caja-gala-xv {
+    background: var(--texto-dark); color: white; border-radius: 12px; padding: 40px 25px; text-align: center;
+}
+.caja-gala-xv h3 { font-family: 'Cinzel', serif; color: var(--oro-champagne); font-size: 1.2rem; margin: 0 0 15px 0; }
+.caja-gala-xv h4 { font-size: 0.75rem; letter-spacing: 3px; margin: 0 0 15px 0; color: #ffffff; }
+.caja-gala-xv p { font-size: 0.9rem; color: #cccccc; margin: 6px 0; font-weight: 300; }
+
+.prohibido-contenedor {
+    display: flex; align-items: center; justify-content: center; margin-top: 25px; gap: 10px;
+}
+.circulo-prohibido {
+    width: 14px; height: 14px; background: var(--rosa-prohibido); border-radius: 50%; border: 1px solid #e0a3ab;
+}
+.prohibido-contenedor span { font-size: 0.75rem; color: #e0a3ab; font-weight: 500; letter-spacing: 0.5px; }
+
+/* Grid de Regalos Inteligente */
+.sub-wishlist { font-size: 0.95rem; color: var(--texto-muted); margin-bottom: 25px; }
+.grid-wishlist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+.item-wishlist {
+    background: var(--rosa-card-inner); border-radius: 12px; padding: 20px 10px; border: 1px solid #fae2e6;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.01); cursor: pointer; transition: transform 0.2s;
+}
+.item-wishlist:hover { transform: scale(1.03); }
+.wish-icono { font-size: 1.6rem; margin-bottom: 8px; }
+.item-wishlist h6 { font-size: 0.7rem; margin: 0 0 12px 0; font-weight: 600; color: var(--texto-dark); }
+
+.btn-wish {
+    background: transparent; border: 1px solid var(--oro-champagne); color: var(--oro-champagne);
+    font-size: 0.55rem; font-weight: 700; padding: 5px 12px; border-radius: 4px; text-transform: uppercase; cursor: pointer;
+}
+
+/* Spotify Box */
+.caja-spotify {
+    background: #ffffff; border: 1px solid #fae2e6; border-radius: 12px; padding: 30px 20px;
+}
+.btn-spotify {
+    display: inline-block; background: #1DB954; color: white; text-decoration: none;
+    font-size: 0.65rem; font-weight: 700; padding: 12px 24px; border-radius: 50px; letter-spacing: 2px; margin-top: 15px;
+}
+
+/* ==========================================================================
+   PASE VIP ACORDEÓN Y CONTROLES FINALES
+   ========================================================================== */
+.pase-moderno-xv {
+    background: var(--rosa-card-inner); border-radius: 16px; overflow: hidden; border: 1px solid #fae2e6;
+    box-shadow: 0 15px 30px rgba(224, 163, 171, 0.15);
+}
+.encabezado-pase {
+    background: var(--oro-champagne); color: white; padding: 12px; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px;
+}
+.cuerpo-pase { padding: 35px 25px; }
+.cuerpo-pase h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin: 0 0 10px 0; }
+.cuerpo-pase p { font-size: 0.9rem; color: var(--texto-muted); margin: 0 0 25px 0; font-weight: 300; }
+
+.btn-rsvp-xv {
+    display: inline-flex; align-items: center; justify-content: center; background: var(--texto-dark); color: white;
+    text-decoration: none; padding: 16px; width: 100%; box-sizing: border-box; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; border-radius: 8px;
+}
+
+.seccion-salir { padding: 20px 24px 40px 24px; }
+.btn-regresar-xv {
+    background: transparent; 
+    color: var(--texto-muted); 
+    border: none; 
+    font-size: 0.65rem;
+    font-weight: 700; 
+    letter-spacing: 2px; 
+    cursor: pointer; 
+    text-decoration: underline; 
+    display: inline-flex; 
+    align-items: center;
+}
+
+/* Toast Notificador Flotante */
+.toast-premium {
+    position: fixed; 
+    bottom: -60px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background: var(--texto-dark); 
+    color: white; 
+    border: 1px solid var(--oro-champagne); 
+    padding: 14px 24px;
+    font-size: 0.65rem; 
+    letter-spacing: 1px; 
+    font-weight: 600; 
+    z-index: 2000; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    white-space: nowrap; 
+    border-radius: 8px;
+}
+.toast-premium.mostrar-toast { bottom: 30px; }
+
+/* SCROLL REVEAL ENGINE */
+.revelar-cascada {
+    opacity: 0; 
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, opacity;
+}
+.revelar-cascada.activo { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+@keyframes brillar {
+    0% { opacity: 0.5; transform: scale(0.96); }
+    50% { opacity: 1; transform: scale(1.04); }
+    100% { opacity: 0.5; transform: scale(0.96); }
+}
+
+
+/* Corrección de tamaño para iconos dentro de la Wishlist */
+.icono-png-titulo-wish {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    display: inline-block;
+}
+
+
+
+
+
+/* Bloqueo de selección de texto y arrastre de imágenes */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Estándar */
+}
+
+/* Blindaje limpio contra arrastre de iconos HD */
+img {
+    -webkit-user-drag: none; /* Compatible con el 99% de los navegadores y móviles */
+}
+
