@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+    <!-- Tipografías elegantes desde Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+   
+   
+    <!-- TU KIT PERSONALIZADO DE ICONOS: Font Awesome -->
+    <script src="https://kit.fontawesome.com/e3686557d0.js" crossorigin="anonymous"></script>
+   
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+
+
+
+
+
+</head>
+<body>
+
+        <!-- BOTONES FLOTANTES CON ICONOS CLÁSICOS -->
+    <div class="botones-flotantes">
+        <!-- Botón de Música -->
+        <button id="btn-musica" class="btn-flotante" onclick="controlarMusica()">
+            <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <!-- Botón de Modo Oscuro -->
+        <button id="btn-oscuro" class="btn-flotante" onclick="controlarModoOscuro()">
+            <i class="fa-regular fa-moon"></i>
+        </button>
+    </div>
+
+
+
+    <!-- Elemento de Audio Oculto -->
+    <!-- Nota: Reemplaza el link por el archivo mp3 real de los novios -->
+    <audio id="musica-boda" loop>
+        <source src="https://soundhelix.com" type="audio/mpeg">
+    </audio>
+
+
+        <!-- 1. PORTADA PRINCIPAL PREMIUM (HERO) -->
+    <header class="hero">
+        <!-- Filtro translúcido para que las letras se lean perfecto sobre cualquier foto -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Contenedor con marco lineal de lujo -->
+        <div class="hero-frame">
+            <div class="hero-content">
+                <span class="hero-welcome">¡Nos Casamos!</span>
+                <h1>Carlos & Alejandra</h1>
+                <div class="hero-divider">
+                    <span class="linea"></span>
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="linea"></span>
+                </div>
+                <span class="fecha-hero">24 . Octubre . 2026</span>
+            </div>
+        </div>
+
+        <!-- Indicador animado para deslizar hacia abajo -->
+        <div class="hero-scroll-indicator">
+            <p>Desliza para descubrir</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </header>
+
+        <!-- 2. CONTADOR EN TIEMPO REAL PREMIUM & ÚNICO -->
+    <section class="contador-premium-seccion">
+        <div class="contador-premium-header">
+            <div class="icon-contador-top">
+                <i class="fa-solid fa-hourglass-half"></i>
+            </div>
+            <h2>El gran día se acerca...</h2>
+            <p>Contamos las horas para celebrar nuestro amor junto a ti.</p>
+        </div>
+        
+        <div class="timer-premium-circular">
+            <!-- Bloque Días -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="days">00</span>
+                    <p class="circle-label">días</p>
+                </div>
+            </div>
+            <!-- Bloque Horas -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="hours">00</span>
+                    <p class="circle-label">horas</p>
+                </div>
+            </div>
+            <!-- Bloque Minutos -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="minutes">00</span>
+                    <p class="circle-label">minutos</p>
+                </div>
+            </div>
+            <!-- Bloque Segundos -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="seconds">00</span>
+                    <p class="circle-label">segundos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+        <!-- 3. PADRES DE LOS NOVIOS MEJORADO -->
+    <section class="padres-premium">
+        <div class="padres-header">
+            <i class="fa-solid fa-heart-custom fa-heart"></i>
+            <h2>Con la bendición de nuestros padres</h2>
+            <p>Quienes con su amor y guía nos han acompañado hasta este momento.</p>
+        </div>
+        
+        <div class="padres-grid">
+            <!-- Bloque Novia -->
+            <div class="padres-card">
+                <div class="padres-card-border">
+                    <span class="rol-familia">Padres de la Novia</span>
+                    <h3>Juan Mariana</h3>
+                    <p class="conector">&</p>
+                    <h3>Sofía Pérez</h3>
+                </div>
+            </div>
+
+            <!-- Bloque Novio -->
+            <div class="padres-card">
+                <div class="padres-card-border">
+                    <span class="rol-familia">Padres del Novio</span>
+                    <h3>Pedro Carlos</h3>
+                    <p class="conector">&</p>
+                    <h3>Luisa Gómez</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- 6. GALERÍA DE FOTOS INTERACTIVA PREMIUM -->
+    <section class="galeria-premium">
+        <div class="galeria-header">
+            <h2>Nuestra Historia en Fotos</h2>
+            <p>Cada imagen guarda un recuerdo inolvidable que queremos compartir contigo.</p>
+        </div>
+
+        <div class="collage-premium-grid">
+            <!-- Foto 1 (Grande destacada) -->
+            <div class="foto-premium-item foto-destacada" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 1">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 2 (Vertical) -->
+            <div class="foto-premium-item foto-vertical" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 2">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 3 -->
+            <div class="foto-premium-item" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 3">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 4 (Horizontal) -->
+            <div class="foto-premium-item foto-horizontal" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 4">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 5 -->
+            <div class="foto-premium-item" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 5">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 6 (Vertical) -->
+            <div class="foto-premium-item foto-vertical" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 6">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 7 -->
+            <div class="foto-premium-item" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 7">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <!-- Foto 8 (Horizontal) -->
+            <div class="foto-premium-item foto-horizontal" onclick="abrirImagen('https://picsum.photos')">
+                <img src="https://picsum.photos" alt="Momento 8">
+                <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISOR DE IMÁGENES EN PANTALLA COMPLETA (LIGHTBOX) -->
+    <div id="lightbox" class="lightbox-modal" onclick="cerrarImagen()">
+        <span class="lightbox-cerrar">&times;</span>
+        <img class="lightbox-contenido" id="img-lightbox" alt="Imagen ampliada">
+    </div>
+
+
+
+        <!-- 4. UBICACIONES FIESTA Y MISA PROFESIONAL -->
+    <section class="ubicaciones-premium">
+        <div class="ubicaciones-header">
+            <h2>Dónde & Cuándo</h2>
+            <p>Preparamos cada detalle para que disfrutes con nosotros este gran día.</p>
+        </div>
+
+        <div class="ubicaciones-container">
+            <!-- Tarjeta 1: Ceremonia -->
+            <div class="ubicacion-card">
+                <div class="ubicacion-info">
+                    <div class="badge-ubicacion"><i class="fa-solid fa-church"></i> Ceremonia</div>
+                    <h3>Ceremonia Religiosa</h3>
+                    <div class="detalle-linea">
+                        <i class="fa-regular fa-clock"></i>
+                        <span><strong>17:00 hrs</strong></span>
+                    </div>
+                    <div class="detalle-linea">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Parroquia de San Francisco<br>Av. Principal #123, Colonia Centro</p>
+                    </div>
+                    <a href="https://google.com" target="_blank" class="btn btn-mapa">
+                        <i class="fa-solid fa-route"></i> Cómo llegar
+                    </a>
+                </div>
+                <div class="ubicacion-mapa">
+                    <!-- Mapa interactivo de Google Maps -->
+                    <iframe src="https://google.com" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Recepción -->
+            <div class="ubicacion-card">
+                <div class="ubicacion-info">
+                    <div class="badge-ubicacion"><i class="fa-solid fa-champagne-glasses"></i> Recepción</div>
+                    <h3>Celebración</h3>
+                    <div class="detalle-linea">
+                        <i class="fa-regular fa-clock"></i>
+                        <span><strong>19:30 hrs</strong></span>
+                    </div>
+                    <div class="detalle-linea">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Jardín de Eventos Los Girasoles<br>Km 5 Carretera Nacional</p>
+                    </div>
+                    <a href="https://google.com" target="_blank" class="btn btn-mapa">
+                        <i class="fa-solid fa-route"></i> Cómo llegar
+                    </a>
+                </div>
+                <div class="ubicacion-mapa">
+                    <!-- Mapa interactivo de Google Maps -->
+                    <iframe src="https://google.com" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- 5. ITINERARIO DEL DÍA MEJORADO -->
+    <section class="itinerario">
+        <h2>El Itinerario</h2>
+        <p class="sub-itinerario">Acompáñanos en cada momento de nuestro gran día</p>
+        
+        <div class="timeline-premium">
+            <!-- Evento 1 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-church"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">17:00 hrs</span>
+                    <h3>Ceremonia Religiosa</h3>
+                    <p>El momento del gran "Sí, acepto" en la parroquia.</p>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">18:30 hrs</span>
+                    <h3>Cóctel de Bienvenida</h3>
+                    <p>Un brindis inicial y sesión de fotos con nuestros invitados.</p>
+                </div>
+            </div>
+
+            <!-- Evento 3 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">20:00 hrs</span>
+                    <h3>Banquete de Bodas</h3>
+                    <p>Una cena especial preparada para disfrutar juntos.</p>
+                </div>
+            </div>
+
+            <!-- Evento 4 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">21:30 hrs</span>
+                    <h3>¡Que empiece la Fiesta!</h3>
+                    <p>Zapatos cómodos obligatorios. ¡A bailar toda la noche!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- 6. CÓDIGO DE VESTIMENTA PREMIUM -->
+    <section class="vestimenta-premium">
+        <div class="vestimenta-header">
+            <div class="icon-vestimenta-top">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h2>Código de Vestimenta</h2>
+            <p class="tag-vestimenta">Formal / Traje de Cóctel</p>
+            <p class="vestimenta-sub">Agradecemos tu apoyo vistiendo de acuerdo a la etiqueta del evento.</p>
+        </div>
+
+        <div class="vestimenta-grid">
+            <!-- Bloque Ellas -->
+            <div class="vestimenta-card">
+                <div class="vestimenta-icon-box">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+                <h3>Para Ellas</h3>
+                <p>Vestido largo o de cóctel en tonos alegres o pastel.</p>
+                <div class="nota-prohibida">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Reservar el color blanco y marfil exclusivamente para la novia.</span>
+                </div>
+            </div>
+
+            <!-- Bloque Ellos -->
+            <div class="vestimenta-card">
+                <div class="vestimenta-icon-box">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <h3>Para Ellos</h3>
+                <p>Traje formal oscuro, camisa de cuello y corbata o lazo.</p>
+                <div class="nota-permitida">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Zapatos formales de vestir obligatorios.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+       <!-- 7. MESA DE REGALOS INTERACTIVA PREMIUM -->
+    <section class="regalos-premium">
+        <div class="regalos-header">
+            <div class="icon-regalos-top">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h2>Mesa de Regalos</h2>
+            <p>Tu presencia es nuestro mayor regalo, pero si deseas tener un detalle con nosotros, te compartimos nuestras opciones:</p>
+        </div>
+
+        <div class="regalos-grid">
+            <!-- Tarjeta 1: Liverpool -->
+            <div class="regalo-card">
+                <div class="regalo-icon-store"><i class="fa-solid fa-store"></i></div>
+                <h3>Liverpool</h3>
+                <p class="regalo-info-text">Número de evento o mesa:</p>
+                <span class="regalo-codigo">50482910</span>
+                <a href="https://liverpool.com.mx" target="_blank" class="btn btn-regalo">
+                    Ver Mesa
+                </a>
+            </div>
+
+            <!-- Tarjeta 2: Transferencia (La interactiva) -->
+            <div class="regalo-card tarjeta-banco">
+                <div class="regalo-icon-store"><i class="fa-solid fa-credit-card"></i></div>
+                <h3>Regalo en Efectivo</h3>
+                <p class="regalo-info-text">Si prefieres apoyarnos vía transferencia:</p>
+                
+                <!-- Datos Bancarios ocultos listos para copiar -->
+                <div class="datos-banco">
+                    <p><strong>Banco:</strong> BBVA</p>
+                    <p><strong>Titular:</strong> Mariana & Carlos</p>
+                    <div class="clabe-contenedor">
+                        <span id="clabe-numero">123456789012345678</span>
+                        <button class="btn-copiar" onclick="copiarClabe()" title="Copiar CLABE">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Amazon -->
+            <div class="regalo-card">
+                <div class="regalo-icon-store"><i class="fa-brands fa-amazon"></i></div>
+                <h3>Amazon</h3>
+                <p class="regalo-info-text">Buscar mesa de bodas como:</p>
+                <span class="regalo-codigo">Boda Mariana y Carlos</span>
+                <a href="https://amazon.com.mx" target="_blank" class="btn btn-regalo">
+                    Ver Mesa
+                </a>
+            </div>
+        </div>
+
+        <!-- AVISO FLOTANTE DE ÉXITO (TOAST NOTIFICATION) -->
+        <div id="toast-aviso" class="toast-oculto">
+            <i class="fa-solid fa-circle-check"></i> CLABE copiada al portapapeles
+        </div>
+    </section>
+
+        <!-- 8. CONFIRMACIÓN DE ASISTENCIA Y CALENDARIO PREMIUM -->
+    <section class="confirmacion-premium">
+        <div class="confirmacion-header">
+            <div class="icon-confirmacion-top">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h2>Confirmación de Asistencia</h2>
+            <p class="confirmacion-sub">Tu presencia hará nuestro día aún más especial. Por favor, confírmanos antes del 30 de Septiembre de 2026.</p>
+        </div>
+
+        <div class="confirmacion-container">
+            <!-- Tarjeta WhatsApp -->
+            <div class="confirmacion-card flex-card">
+                <div class="confirmacion-info-box">
+                    <div class="badge-rsvp"><i class="fa-solid fa-circle-check"></i> RSVP</div>
+                    <h3>Confirmar por WhatsApp</h3>
+                    <p>Serás redirigido al chat de los novios con un mensaje personalizado para asegurar tus pases.</p>
+                    <!-- Cambia el número 521234567890 por el de tu cliente más adelante -->
+                    <a href="https://wa.me¡Hola!%20Confirmamos%20nuestra%20asistencia%20a%20su%20boda.%20Estamos%20muy%20emocionados%20de%20acompañarlos." target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta Calendario -->
+            <div class="confirmacion-card flex-card">
+                <div class="confirmacion-info-box">
+                    <div class="badge-calendar"><i class="fa-regular fa-bell"></i> No Olvidar</div>
+                    <h3>Agendar en Calendario</h3>
+                    <p>Guarda la fecha exacta de forma nativa en tu celular para recibir una alerta automática 3 días antes.</p>
+                    <!-- Enlace exacto y optimizado para la boda del 24 de Octubre de 2026 -->
+                    <a href="https://google.com¡Llegó+el+gran+día!+No+olvides+tu+asistencia.+Tu+recordatorio+automático+ha+sido+programado.&location=Jardín+de+Eventos+Los+Girasoles&remind=4320" target="_blank" class="btn btn-calendar-premium">
+                        <i class="fa-solid fa-calendar-plus"></i> Añadir a Google Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- VINCULACIÓN DEL ARCHIVO JAVASCRIPT EXTERNO -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
