@@ -284,7 +284,7 @@ section:nth-of-type(odd) {
     height: 100svh;
     min-height: 560px;
     /* Reemplaza este link por la foto principal de los novios */
-    background-image: url('fotos/imagen1.jpeg');
+    background-image: url('./fotos/imagen1.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
