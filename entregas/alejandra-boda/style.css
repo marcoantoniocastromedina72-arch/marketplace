@@ -284,7 +284,9 @@ section:nth-of-type(odd) {
     height: 100svh;
     min-height: 560px;
     /* Reemplaza este link por la foto principal de los novios */
-    background: url('https://picsum.photos') no-repeat center center;
+    background-image: url('fotos/imagen1.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     display: flex;
     justify-content: center;
