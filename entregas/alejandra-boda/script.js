@@ -3,7 +3,7 @@
 // ==========================================
 // Configura la fecha de la boda (Año, Mes - 1, Día, Hora, Minutos)
 // Nota: En JS los meses van de 0 a 11 (Octubre = 9)
-const fechaBoda = new Date(2026, 9, 24, 17, 0, 0).getTime();
+const fechaBoda = new Date(2026, 7, 15, 12, 0, 0).getTime();
 
 const contador = setInterval(function() {
     const ahora = new Date().getTime();
