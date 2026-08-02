@@ -35,6 +35,9 @@ const contador = setInterval(function() {
 // ==========================================
 // 2. LÓGICA DE LA MÚSICA DE FONDO (CON ICONOS CLÁSICOS)
 // ==========================================
+// Variable global fuera de la función para saber si es la primera vez que se reproduce
+let primeraReproduccion = true;
+
 function controlarMusica() {
     const musica = document.getElementById("musica-boda");
     const btnMusica = document.getElementById("btn-musica");
@@ -44,21 +47,34 @@ function controlarMusica() {
     const iconoMusica = btnMusica.querySelector("i");
 
     if (musica.paused) {
+        // AGREGAR ESTO: Si es la primera vez que le dan PLAY, salta directo al minuto 1:00 (segundo 60)
+        if (primeraReproduccion) {
+            musica.currentTime = 60; 
+            primeraReproduccion = false; // Cambiamos el estado para que no se reinicie si pausan y despausan
+            
+            // AGREGAR ESTO: Controla que cuando llegue al minuto 1:40 (segundo 100), regrese al coro
+            musica.addEventListener('timeupdate', function() {
+                if (musica.currentTime >= 100) { 
+                    musica.currentTime = 60; // Loop infinito del fragmento romántico
+                }
+            });
+        }
+
         musica.play().catch(error => {
             console.log("El navegador bloqueó el inicio automático.");
         });
-        // Si la música está sonando, muestra el icono de volumen alto
+        
         iconoMusica.className = "fa-solid fa-volume-high";
         btnMusica.style.background = "var(--oro)";
         iconoMusica.style.color = "white";
     } else {
         musica.pause();
-        // Si se pausa, muestra el icono de volumen muteado
         iconoMusica.className = "fa-solid fa-volume-xmark";
         btnMusica.style.background = "";
         iconoMusica.style.color = "";
     }
 }
+
 
 
 // ==========================================
