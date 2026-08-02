@@ -1,0 +1,1967 @@
+/* ==========================================
+   PALETA "NUDE · CIELO · LAVANDA" — tonos clarito, nunca intensos
+   ========================================== */
+:root {
+    /* 1. Bloque Azul cielo, muy clarito */
+    --azul-principal: #CFE1F0;
+    --azul-claro: #E4EFF9;
+    --azul-linea: #B9D2E8;
+
+    /* 2. Bloque Nude cálido */
+    --nude-beige: #E8CBAE;
+    --nude-suave: #F4E3D0;
+    --marfil: #FBF7F2;
+
+    /* 3. Bloque Lavanda rosado, MUY clarito */
+    --rosa-lavanda: #E3C7DA;
+    --lila-pastel: #F1E3ED;
+    --lavanda-linea: #D9B9CF;
+
+    /* 4. Acento "joyería" para brillos y destellos */
+    --oro: #CDA96E;
+    --oro-brillo: #F1DFB8;
+
+    /* Asignación estructural para Modo Claro */
+    --oscuro: #3E3630;
+    --claro: var(--marfil);
+    --fondo-alterno: var(--azul-claro);
+    --detalles: var(--rosa-lavanda);
+
+    /* Tipografía */
+    --font-display: 'Cinzel', serif;
+    --font-titulo: 'Cormorant Garamond', serif;
+    --font-script: 'Dancing Script', cursive;
+    --font-cuerpo: 'Montserrat', sans-serif;
+}
+
+/* ESTILOS BASE */
+body {
+    margin: 0;
+    font-family: var(--font-cuerpo);
+    background-color: var(--claro);
+    color: var(--oscuro);
+    text-align: center;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+
+h1, h2, h3 {
+    font-family: var(--font-titulo);
+    font-weight: 500;
+}
+
+section h2 {
+    font-size: 2.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    color: var(--oscuro);
+}
+
+/* Pequeño destello ornamental bajo cada título de sección */
+section h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 2px;
+    margin: 14px auto 0 auto;
+    background: linear-gradient(90deg, transparent, var(--oro), transparent);
+    background-size: 200% 100%;
+    animation: brilloLinea 3.5s ease-in-out infinite;
+}
+
+@keyframes brilloLinea {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ==========================================
+   SISTEMA DE SCROLL-REVEAL (textos que aparecen al hacer scroll)
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-stagger.in-view > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.18s; }
+.reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.31s; }
+.reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.44s; }
+.reveal-stagger.in-view > *:nth-child(5) { transition-delay: 0.57s; }
+.reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.70s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================================
+   DESTELLOS / BRILLOS FLOTANTES (partículas ambientales)
+   ========================================== */
+.sparkle-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, var(--oro-brillo) 0%, rgba(241,223,184,0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: destello 4.5s ease-in-out infinite;
+}
+
+.sparkle::before,
+.sparkle::after {
+    content: "";
+    position: absolute;
+    background: var(--oro-brillo);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sparkle::before { width: 1px; height: 14px; }
+.sparkle::after { width: 14px; height: 1px; }
+
+@keyframes destello {
+    0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+    50% { opacity: 0.9; transform: scale(1) rotate(45deg); }
+}
+
+/* Brillo tipo "shine" que recorre botones y tarjetas al hacer hover */
+.shine-hover {
+    position: relative;
+    overflow: hidden;
+}
+.shine-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.75s ease;
+    pointer-events: none;
+}
+.shine-hover:hover::before {
+    left: 125%;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* SECCIONES INTERCALADAS PARA QUE LA WEB TENGA RITMO VISUAL */
+section:nth-of-type(even) {
+    background-color: var(--fondo-alterno) !important; /* Fuerza el uso de Azul Bebé */
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--claro) !important; /* Fuerza el uso de Marfil / Crema */
+}
+
+
+
+
+
+
+
+
+
+/* ACTUALIZACIÓN DE BOTONES CON LOS NUEVOS TONOS ACCESIBLES */
+.btn {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--azul-principal);
+    color: var(--oscuro);
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(185, 210, 232, 0.35);
+    transition: background-color 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Destello que recorre el botón al pasar el cursor */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.65), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+}
+
+.btn:hover::before {
+    left: 130%;
+}
+
+.btn:hover {
+    background-color: var(--rosa-lavanda);
+    color: var(--oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(217, 185, 207, 0.45);
+}
+
+.btn-calendar {
+    background-color: #4285F4;
+}
+
+.btn-calendar:hover {
+    background-color: #2b6ad4;
+}
+
+/* MAQUETACIÓN EN GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background: var(--marfil); /* Fondo Marfil para que resalten sobre el Azul Bebé */
+    padding: 30px;
+    border-radius: 12px; /* Bordes un poco más redondeados y modernos */
+    border: 1px solid rgba(219, 178, 209, 0.4); /* Borde sutil en Rosa Lavanda */
+    box-shadow: 0 6px 20px rgba(167, 199, 231, 0.15);
+    transition: transform 0.3s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(219, 178, 209, 0.25); /* Destello rosa al pasar el cursor */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN 1: PORTADA PRINCIPAL (HERO) PREMIUM */
+.hero {
+    position: relative;
+    height: 100svh;
+    min-height: 560px;
+    /* Reemplaza este link por la foto principal de los novios */
+    background-image: url('fotos/imagen1.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Capa de protección visual — velo tonal en los colores de la paleta, no negro puro */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(62, 54, 48, 0.38) 0%,
+        rgba(74, 58, 66, 0.5) 55%,
+        rgba(45, 48, 58, 0.62) 100%
+    );
+    z-index: 1;
+}
+
+/* Monograma inicial de los novios, flotando sobre el marco */
+.hero-monograma {
+    position: relative;
+    z-index: 3;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 22px auto;
+    border-radius: 50%;
+    border: 1px solid rgba(241, 223, 184, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-script);
+    font-size: 2.1rem;
+    color: var(--oro-brillo);
+    background: rgba(251, 247, 242, 0.06);
+    backdrop-filter: blur(3px);
+    animation: apareceMonograma 1.4s ease both, flotarSuave 5s ease-in-out 1.4s infinite;
+}
+
+@keyframes apareceMonograma {
+    0% { opacity: 0; transform: scale(0.7) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes flotarSuave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* Marco lineal minimalista estilo papelería de lujo, con destello recorriendo el borde */
+.hero-frame {
+    position: relative;
+    border: 1px solid rgba(241, 223, 184, 0.45);
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 62vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+    border-radius: 4px;
+    opacity: 0;
+    animation: apareceMarco 1.1s ease 0.15s forwards;
+}
+
+@keyframes apareceMarco {
+    0% { opacity: 0; transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Esquinas ornamentales, como una invitación grabada */
+.hero-frame::before,
+.hero-frame::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--oro-brillo);
+    opacity: 0.85;
+}
+.hero-frame::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.hero-frame::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.hero-content {
+    color: var(--marfil);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+.hero-welcome {
+    font-family: var(--font-script);
+    font-size: 2.6rem;
+    color: var(--nude-suave);
+    display: block;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.25);
+    opacity: 0;
+    animation: apareceTexto 1s ease 0.5s forwards;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.35);
+    line-height: 1.3;
+    opacity: 0;
+    animation: apareceTexto 1s ease 0.75s forwards;
+    /* Brillo sutil que recorre las letras, como hilo metálico en papel de lujo */
+    background: linear-gradient(100deg, var(--marfil) 40%, var(--oro-brillo) 50%, var(--marfil) 60%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: apareceTexto 1s ease 0.75s forwards, brilloTexto 6s ease-in-out 2s infinite;
+}
+
+@keyframes brilloTexto {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -50% 0; }
+}
+
+@keyframes apareceTexto {
+    0% { opacity: 0; transform: translateY(14px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Separador de título con corazón */
+.hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: apareceTexto 1s ease 1s forwards;
+}
+
+.hero-divider .linea {
+    width: 50px;
+    height: 1px;
+    background-color: var(--nude-suave);
+    opacity: 0.7;
+}
+
+.hero-divider i {
+    color: var(--rosa-lavanda);
+    font-size: 0.9rem;
+}
+
+.fecha-hero {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    display: block;
+    color: var(--marfil);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    opacity: 0;
+    animation: apareceTexto 1s ease 1.2s forwards;
+}
+
+/* Indicador inferior animado flotante */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    color: var(--marfil);
+    text-align: center;
+    opacity: 0;
+    animation: apareceScrollIndicator 1s ease 1.6s forwards;
+}
+
+/* Animación propia que conserva el centrado (translateX -50%) mientras aparece */
+@keyframes apareceScrollIndicator {
+    0% { opacity: 0; transform: translate(-50%, 14px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.hero-scroll-indicator p {
+    font-family: var(--font-cuerpo);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 8px 0;
+}
+
+.hero-scroll-indicator i {
+    font-size: 1.1rem;
+    animation: bounceFlotante 2s infinite;
+    color: var(--nude-suave);
+}
+
+/* ANIMACIÓN DE REBOTE DE LA FLECHA */
+@keyframes bounceFlotante {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Optimización de tamaño de letra para pantallas grandes (PC/Tablets) */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3.8rem;
+    }
+    .hero-frame {
+        height: 55vh;
+        max-width: 650px;
+        padding: 60px 40px;
+    }
+    .hero-monograma {
+        width: 96px;
+        height: 96px;
+        font-size: 2.4rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: CONTADOR INTERACTIVO CIRCULAR */
+.contador-premium-seccion {
+    padding: 90px 20px;
+    background-color: var(--azul-claro); /* Se integra con el lienzo azul bebé de la clienta */
+}
+
+.contador-premium-header {
+    margin-bottom: 40px;
+}
+
+.icon-contador-top {
+    color: var(--rosa-lavanda);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    animation: girarArena 4s infinite ease-in-out; /* El reloj de arena gira solo de forma premium */
+}
+
+.contador-premium-header p {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.85;
+    margin-top: 5px;
+}
+
+/* Contenedor flexible de los círculos */
+.timer-premium-circular {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Se acomoda en 2x2 en celulares pequeños si es necesario */
+}
+
+/* El anillo exterior */
+.circle-block {
+    width: 85px;
+    height: 85px;
+    background: var(--marfil);
+    border: 2px solid var(--nude-beige);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(167, 199, 231, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* El contenedor interior */
+.circle-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Números ultra estilizados con tipografía de la portada */
+.circle-block span {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--oscuro);
+    line-height: 1.1;
+}
+
+/* Etiquetas en manuscrita romántica */
+.circle-label {
+    margin: 2px 0 0 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--rosa-lavanda);
+    font-weight: 600;
+}
+
+/* EFECTOS INTERACTIVOS (HOVER) */
+.circle-block:hover {
+    transform: scale(1.08);
+    border-color: var(--rosa-lavanda);
+    box-shadow: 0 10px 25px rgba(219, 178, 209, 0.3);
+}
+
+/* ANIMACIÓN SUTIL DEL RELOJ DE ARENA */
+@keyframes girarArena {
+    0%, 90% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+
+/* Ajuste premium para pantallas más grandes (PC/Tablets) */
+@media (min-width: 480px) {
+    .circle-block {
+        width: 110px;
+        height: 110px;
+        border-width: 3px;
+    }
+    .circle-block span {
+        font-size: 2.2rem;
+    }
+    .circle-label {
+        font-size: 1.3rem;
+        margin-top: 4px;
+    }
+    .timer-premium-circular {
+        gap: 25px;
+    }
+}
+
+
+
+
+
+
+
+/* SECCIÓN: PADRES PREMIUM */
+.padres-premium {
+    padding: 90px 20px;
+    background-color: var(--claro);
+    position: relative;
+}
+
+.padres-header {
+    margin-bottom: 50px;
+}
+
+.padres-header i {
+    color: var(--rosa-lavanda);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: latidoSuave 2.8s ease-in-out infinite;
+}
+
+@keyframes latidoSuave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+.padres-header p {
+    font-family: var(--font-cuerpo);
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.75;
+    max-width: 480px;
+    margin: 12px auto 0 auto;
+    font-style: italic;
+}
+
+.padres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 34px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* La tarjeta exterior */
+.padres-card {
+    background: var(--marfil);
+    padding: 6px;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(185, 210, 232, 0.28);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    position: relative;
+}
+
+/* El marco interior elegante (estilo grabado de invitaciones impresas) */
+.padres-card-border {
+    border: 1px solid var(--nude-beige);
+    border-radius: 14px;
+    padding: 36px 24px 28px 24px;
+    height: calc(100% - 12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Pequeño ornamento superior tipo "sello" de invitación */
+.padres-card-border::before {
+    content: "❧";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--marfil);
+    color: var(--oro);
+    font-size: 1.1rem;
+    padding: 0 10px;
+}
+
+.rol-familia {
+    font-family: var(--font-cuerpo);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rosa-lavanda);
+    font-weight: 600;
+    margin-bottom: 22px;
+    display: block;
+}
+
+.padres-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--oscuro);
+    letter-spacing: 0.5px;
+}
+
+.conector {
+    font-family: var(--font-script);
+    font-size: 1.7rem;
+    color: var(--nude-beige);
+    margin: 6px 0;
+}
+
+/* EFECTO HOVER PREMIUM: se eleva y el marco brilla en dorado */
+.padres-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(227, 199, 218, 0.4);
+}
+
+.padres-card:hover .padres-card-border {
+    border-color: var(--oro);
+    transition: border-color 0.35s ease;
+}
+
+.padres-card:hover .padres-card-border::before {
+    color: var(--rosa-lavanda);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: UBICACIONES PROFESIONALES */
+.ubicaciones-premium {
+    padding: 80px 20px;
+    background-color: var(--azul-claro); /* Se asienta sobre el fondo base de la clienta */
+}
+
+.ubicaciones-header {
+    margin-bottom: 50px;
+}
+
+.ubicaciones-header p {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.8;
+    max-width: 500px;
+    margin: 10px auto 0 auto;
+}
+
+.ubicaciones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Tarjeta contenedora dividida */
+.ubicacion-card {
+    background: var(--marfil);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(167, 199, 231, 0.2);
+    display: flex;
+    flex-direction: column; /* Apilado en celulares */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ubicacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(219, 178, 209, 0.3);
+}
+
+/* Columna de Información */
+.ubicacion-info {
+    padding: 40px 30px;
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge-ubicacion {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--oscuro);
+    background-color: var(--lila-pastel);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.ubicacion-info h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--oscuro);
+}
+
+.detalle-linea {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.detalle-linea i {
+    color: var(--rosa-lavanda);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+.detalle-linea p, .detalle-linea span {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--oscuro);
+}
+
+.btn-mapa {
+    align-self: flex-start;
+    margin-top: 25px;
+}
+
+/* Columna del Mapa */
+.ubicacion-mapa {
+    flex: 1;
+    min-height: 250px;
+    position: relative;
+}
+
+.ubicacion-mapa iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* MAQUETACIÓN PREMIUM PARA DISPOSITIVOS GRANDES (PC / TABLETS) */
+@media (min-width: 768px) {
+    .ubicacion-card {
+        flex-direction: row; /* Se dividen 50% y 50% de forma horizontal */
+        height: 380px;
+    }
+
+    /* Alterna el orden de mapa e información para un look asimétrico de diseño */
+    .ubicacion-card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: ITINERARIO PREMIUM ESTILO TARJETAS */
+.sub-itinerario {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.timeline-premium {
+    position: relative;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* La línea central vertical */
+.timeline-premium::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--rosa-lavanda), var(--nude-beige));
+    top: 0;
+    bottom: 0;
+    left: 25px; /* Alineación perfecta a la izquierda en pantallas de celular */
+    border-radius: 3px;
+}
+
+.timeline-card {
+    position: relative;
+    margin-bottom: 35px;
+    padding-left: 65px; /* Espacio para que no choque con la línea */
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Contenedor de los iconos flotantes */
+.timeline-icon {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 34px;
+    height: 34px;
+    background-color: var(--marfil);
+    border: 2px solid var(--rosa-lavanda);
+    color: var(--oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* El cuadro con el texto */
+.timeline-content {
+    background: var(--marfil);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--nude-beige); /* Detalle elegante al costado */
+    box-shadow: 0 4px 15px rgba(167, 199, 231, 0.15);
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.timeline-time {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--oscuro);
+    background-color: var(--azul-claro);
+    padding: 3px 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--oscuro);
+    opacity: 0.9;
+}
+
+/* EFECTOS DE INTERACCIÓN AL PASAR EL CURSOR (HOVER) */
+.timeline-card:hover .timeline-icon {
+    transform: scale(1.15);
+    background-color: var(--rosa-lavanda);
+    color: white;
+}
+
+.timeline-card:hover .timeline-content {
+    transform: translateX(4px);
+    box-shadow: 0 6px 20px rgba(219, 178, 209, 0.25);
+    border-left-color: var(--rosa-lavanda);
+}
+
+/* Ajustes de diseño para pantallas más amplias (Computadoras/Tablets) */
+@media (min-width: 600px) {
+    .timeline-premium::before {
+        left: 50%; /* Mueve la línea justo al centro */
+        transform: translateX(-50%);
+    }
+    
+    .timeline-card {
+        padding-left: 0;
+        width: 50%; /* Ocupan la mitad de la pantalla */
+    }
+
+    /* Alterna tarjetas de izquierda a derecha de forma automática */
+    .timeline-card:nth-child(odd) {
+        left: 0;
+        padding-right: 40px;
+        text-align: right;
+        justify-content: flex-end;
+    }
+
+    .timeline-card:nth-child(even) {
+        left: 50%;
+        padding-left: 40px;
+        text-align: left;
+        justify-content: flex-start;
+    }
+
+    .timeline-card:nth-child(odd) .timeline-content {
+        border-left: none;
+        border-right: 4px solid var(--nude-beige); /* Detalle del lado contrario */
+    }
+    
+    .timeline-card:nth-child(odd):hover .timeline-content {
+        transform: translateX(-4px);
+        border-right-color: var(--rosa-lavanda);
+    }
+
+    .timeline-icon {
+        left: auto;
+        right: -17px; /* Centrado perfecto sobre la línea central */
+    }
+
+    .timeline-card:nth-child(even) .timeline-icon {
+        left: -17px;
+        right: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: CÓDIGO DE VESTIMENTA PREMIUM */
+.vestimenta-premium {
+    padding: 80px 20px;
+    background-color: var(--claro); /* Usa el fondo marfil/crema para descansar la vista */
+}
+
+.vestimenta-header {
+    margin-bottom: 45px;
+}
+
+.icon-vestimenta-top {
+    color: var(--rosa-lavanda);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* Rediseño estilizado del Tag de etiqueta */
+.tag-vestimenta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--oscuro);
+    background-color: var(--nude-beige); /* Resalta hermoso en tono cálido */
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(242, 211, 188, 0.3);
+}
+
+.vestimenta-sub {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.8;
+    max-width: 480px;
+    margin: 5px auto 0 auto;
+}
+
+/* Grid de tarjetas para damas y caballeros */
+.vestimenta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.vestimenta-card {
+    background: var(--marfil);
+    border: 1px solid rgba(167, 199, 231, 0.3);
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(167, 199, 231, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vestimenta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(219, 178, 209, 0.22);
+}
+
+/* Círculos contenedores de iconos */
+.vestimenta-icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: var(--azul-claro);
+    color: var(--oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.vestimenta-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.vestimenta-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--oscuro);
+    opacity: 0.9;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+/* Alertas visuales estéticas de etiqueta */
+.nota-prohibida, .nota-permitida {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #FDF3F3; /* Rojo/Rosa ultra sutil de advertencia */
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 3px solid #E74C3C;
+    text-align: left;
+}
+
+.nota-permitida {
+    background-color: #F4F9F4; /* Verde sutil de confirmación */
+    border-left-color: #2ECC71;
+}
+
+.nota-prohibida i { color: #E74C3C; font-size: 0.9rem; }
+.nota-permitida i { color: #2ECC71; font-size: 0.9rem; }
+
+.nota-prohibida span, .nota-permitida span {
+    font-size: 0.8rem;
+    color: var(--oscuro);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Hover cruzado con el icono */
+.vestimenta-card:hover .vestimenta-icon-box {
+    background-color: var(--rosa-lavanda);
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: MESA DE REGALOS PREMIUM */
+.regalos-premium {
+    padding: 85px 20px;
+    background-color: var(--claro); /* Fondo Marfil para contrastar */
+}
+
+.regalos-header {
+    margin-bottom: 45px;
+}
+
+.icon-regalos-top {
+    color: var(--rosa-lavanda);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.regalos-header p {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.85;
+    max-width: 550px;
+    margin: 8px auto 0 auto;
+    line-height: 1.6;
+}
+
+.regalos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.regalo-card {
+    background: var(--marfil);
+    border: 1px solid rgba(167, 199, 231, 0.3);
+    padding: 35px 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(167, 199, 231, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Alinea los botones perfectamente abajo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.regalo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(219, 178, 209, 0.22);
+}
+
+.regalo-icon-store {
+    width: 45px;
+    height: 45px;
+    background-color: var(--azul-claro);
+    color: var(--oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.regalo-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.regalo-info-text {
+    font-size: 0.85rem;
+    color: var(--oscuro);
+    opacity: 0.8;
+    margin: 0 0 10px 0;
+}
+
+.regalo-codigo {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--oscuro);
+    background-color: var(--azul-claro);
+    padding: 4px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Tarjeta especial del Banco */
+.tarjeta-banco {
+    border-color: var(--nude-beige);
+    background-color: var(--marfil);
+}
+
+.datos-banco {
+    width: 100%;
+    text-align: center;
+}
+
+.datos-banco p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: var(--oscuro);
+}
+
+/* Contenedor interactivo de la cuenta CLABE */
+.clabe-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--marfil);
+    border: 1px dashed var(--rosa-lavanda);
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    gap: 10px;
+}
+
+.clabe-contenedor span {
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--oscuro);
+}
+
+.btn-copiar {
+    background: none;
+    border: none;
+    color: var(--rosa-lavanda);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-copiar:hover {
+    transform: scale(1.15);
+    color: var(--oscuro);
+}
+
+/* ESTILOS DEL AVISO FLOTANTE DE ÉXITO (TOAST) */
+.toast-oculto {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #2C3E50;
+    color: #FAF0E6;
+    text-align: center;
+    border-radius: 30px;
+    padding: 12px 24px;
+    position: fixed;
+    z-index: 2500;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.toast-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast-oculto i {
+    color: #2ECC71; /* Palomita verde de éxito */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: CONFIRMACIÓN Y CALENDARIO PREMIUM */
+.confirmacion-premium {
+    padding: 85px 20px;
+    background-color: var(--azul-claro); /* Se asienta en armonía sobre la base azul bebé */
+}
+
+.confirmacion-header {
+    margin-bottom: 45px;
+}
+
+.icon-confirmacion-top {
+    color: var(--rosa-lavanda);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.confirmacion-sub {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.85;
+    max-width: 520px;
+    margin: 8px auto 0 auto;
+    line-height: 1.6;
+}
+
+.confirmacion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de confirmación */
+.confirmacion-card {
+    background: var(--marfil);
+    border-radius: 16px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 25px rgba(167, 199, 231, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(219, 178, 209, 0.2);
+}
+
+.confirmacion-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.confirmacion-card p {
+    font-size: 0.9rem;
+    color: var(--oscuro);
+    opacity: 0.85;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+/* Badges estilizados */
+.badge-rsvp, .badge-calendar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: var(--nude-beige);
+    color: var(--oscuro);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+.badge-calendar {
+    background-color: var(--lila-pastel);
+}
+
+/* Rediseño de botones de acción específicos */
+.btn-whatsapp {
+    background-color: #25D366 !important; /* Verde WhatsApp nativo oficial */
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25) !important;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba59 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4) !important;
+}
+
+.btn-calendar-premium {
+    background-color: #4285F4 !important; /* Azul Google nativo oficial */
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.25) !important;
+}
+
+.btn-calendar-premium:hover {
+    background-color: #3370d4 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(66, 133, 244, 0.4) !important;
+}
+
+/* HOVER EN LAS TARJETAS */
+.confirmacion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(219, 178, 209, 0.25);
+}
+
+/* DISEÑO MULTICOLUMNA PARA PANTALLAS GRANDES */
+@media (min-width: 650px) {
+    .confirmacion-container {
+        flex-direction: row; /* Se colocan una al lado de la otra de forma asimétrica */
+    }
+    .flex-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN: GALERÍA — CARRUSEL PREMIUM */
+.galeria-premium {
+    padding: 90px 0;
+    background-color: var(--azul-claro);
+}
+
+.galeria-header {
+    margin-bottom: 44px;
+    padding: 0 20px;
+}
+
+.galeria-header p {
+    font-size: 0.95rem;
+    color: var(--oscuro);
+    opacity: 0.8;
+    max-width: 500px;
+    margin: 10px auto 0 auto;
+}
+
+/* Contenedor del carrusel */
+.carrusel-premium {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carrusel-marco {
+    position: relative;
+}
+
+.carrusel-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(185, 210, 232, 0.4);
+}
+
+.carrusel-pista {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carrusel-slide {
+    position: relative;
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 5;
+    cursor: pointer;
+    background-color: var(--marfil);
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carrusel-slide:hover img {
+    transform: scale(1.045);
+}
+
+.carrusel-slide .foto-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(62,54,48,0) 55%, rgba(62,54,48,0.55) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 18px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.carrusel-slide:hover .foto-overlay {
+    opacity: 1;
+}
+
+.foto-overlay i {
+    color: var(--marfil);
+    font-size: 1.2rem;
+}
+
+/* Flechas de navegación */
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(251, 247, 242, 0.92);
+    color: var(--oscuro);
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.carrusel-flecha:hover {
+    background: var(--rosa-lavanda);
+    color: var(--marfil);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carrusel-flecha.anterior { left: 4px; }
+.carrusel-flecha.siguiente { right: 4px; }
+
+/* Puntos indicadores */
+.carrusel-puntos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.carrusel-punto {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--rosa-lavanda);
+    opacity: 0.4;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carrusel-punto.activo {
+    opacity: 1;
+    background: var(--oro);
+    transform: scale(1.25);
+}
+
+@media (min-width: 768px) {
+    .carrusel-premium { max-width: 760px; }
+    .carrusel-slide { aspect-ratio: 16 / 9; }
+    .carrusel-flecha.anterior { left: -14px; }
+    .carrusel-flecha.siguiente { right: -14px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DISEÑO DEL VISOR DE PANTALLA COMPLETA (LIGHTBOX) */
+.lightbox-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Por encima de los botones flotantes */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 25, 33, 0.95); /* Fondo oscuro elegante */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox-contenido {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.lightbox-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--marfil);
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox-cerrar:hover {
+    color: var(--rosa-lavanda);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BOTONES FLOTANTES */
+.botones-flotantes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; /* Asegura que queden por encima de todo */
+}
+
+.btn-flotante {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--oro);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    /* Modifica el transition que ya tenía para incluir los colores */
+    transition: transform 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.btn-flotante:hover {
+    transform: scale(1.1);
+    background-color: var(--claro);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   SISTEMA DE MODO OSCURO PREMIUM - CORREGIDO TOTAL
+   ========================================== */
+
+/* Variables que mutan automáticamente en Modo Oscuro */
+body.dark-mode {
+    --claro: #0d131a;           /* Fondo general: Azul noche profundo */
+    --oscuro: #f1f5f9;          /* Texto principal: Blanco roto legible */
+    --fondo-alterno: #131c26;   /* Fondo secundario */
+    --azul-claro: #1a2432;      /* Contenedores oscuros */
+    --marfil: #1a2432;          /* Fuerza a que la variable marfil también sea oscura */
+}
+
+/* Fuerza el cambio de fondo y texto a absolutamente TODAS las tarjetas del sitio */
+body.dark-mode .card,
+body.dark-mode .padres-card,
+body.dark-mode .timeline-content,
+body.dark-mode .ubicacion-card,
+body.dark-mode .vestimenta-card,
+body.dark-mode .circle-block,
+body.dark-mode .confirmacion-card,
+body.dark-mode .regalo-card {
+    background-color: var(--azul-claro) !important;
+    color: var(--oscuro) !important;
+    border-color: rgba(167, 199, 231, 0.15) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Asegura de forma estricta que los textos internos no se pierdan */
+body.dark-mode .padres-card h3,
+body.dark-mode .timeline-content h3,
+body.dark-mode .timeline-content p,
+body.dark-mode .ubicacion-info h3,
+body.dark-mode .detalle-linea p,
+body.dark-mode .vestimenta-card h3,
+body.dark-mode .vestimenta-card p,
+body.dark-mode .regalo-card h3,
+body.dark-mode .regalo-info-text,
+body.dark-mode .regalo-codigo,
+body.dark-mode .datos-banco p,
+body.dark-mode .clabe-contenedor span,
+body.dark-mode .confirmacion-card h3,
+body.dark-mode .confirmacion-card p {
+    color: var(--oscuro) !important;
+}
+
+/* Evita que los contenedores de copia de CLABE se queden transparentes o blancos */
+body.dark-mode .clabe-contenedor {
+    background-color: var(--claro) !important;
+    border-color: var(--rosa-lavanda) !important;
+}
+
+/* 1. PROTECCIÓN TOTAL DEL HERO (PORTADA) — el texto del hero siempre se lee sobre la foto */
+.hero-welcome {
+    color: var(--nude-suave) !important;
+}
+.fecha-hero {
+    color: var(--marfil) !important;
+}
+
+/* 2. ARREGLO INTEGRAL DE BOTONES FLOTANTES Y HOVERS */
+.btn-flotante {
+    background-color: rgba(251, 247, 242, 0.9);
+    border: 1px solid var(--azul-principal);
+    color: var(--oscuro);
+}
+
+#btn-oscuro:hover {
+    transform: scale(1.1);
+    background-color: rgba(251, 247, 242, 1);
+}
+
+body.dark-mode .btn-flotante {
+    background-color: rgba(251, 247, 242, 0.9) !important;
+}
+body.dark-mode .btn-flotante i {
+    color: #3E3630 !important;
+}
+
+/* 3. SISTEMA DE ALERTAS DE VESTIMENTA (AISLADAS) */
+body.dark-mode .nota-prohibida,
+body.dark-mode .nota-permitida {
+    background-color: #FDF3F3 !important;
+    border-left: 3px solid #E74C3C !important;
+}
+body.dark-mode .nota-permitida {
+    background-color: #F4F9F4 !important;
+    border-left-color: #2ECC71 !important;
+}
+body.dark-mode .nota-prohibida span { color: #922B21 !important; }
+body.dark-mode .nota-permitida span { color: #196F3D !important; }
+
+
+
+
+
+
+
+
+.versiculo {
+    font-family: var(--font-titulo);
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--oscuro);
+    opacity: 0.85;
+    margin-top: 20px;
+}
+
+
+/* --- Estilos para el meme oculto elegante --- */
+.btn-antojo {
+    background-color: transparent;
+    border: 1px solid var(--oscuro); /* Usa tus variables tipográficas */
+    color: var(--oscuro);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: var(--font-cuerpo);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-antojo:hover {
+    background-color: var(--oscuro);
+    color: var(--claro);
+}
+
+.meme-oculto {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.4s ease;
+    opacity: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.meme-oculto img {
+    width: 85%; /* No ocupa todo el ancho para mantener la delicadeza */
+    max-width: 250px; /* Evita que en pantallas grandes se deforme */
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Clase que activa JavaScript para mostrarlo con animación fluida */
+.meme-visible {
+    max-height: 400px; /* Altura máxima estimada para que quepa la imagen */
+    opacity: 1;
+    margin-top: 10px;
+}
