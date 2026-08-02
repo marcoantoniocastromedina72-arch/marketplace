@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Israel y Alejandra</title>
+    <!-- Tipografías elegantes desde Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400..700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+   
+   
+    <!-- TU KIT PERSONALIZADO DE ICONOS: Font Awesome -->
+    <script src="https://kit.fontawesome.com/e3686557d0.js" crossorigin="anonymous"></script>
+   
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+
+
+
+
+
+</head>
+<body>
+
+        <!-- BOTONES FLOTANTES CON ICONOS CLÁSICOS -->
+    <div class="botones-flotantes">
+        <!-- Botón de Música -->
+        <button id="btn-musica" class="btn-flotante" onclick="controlarMusica()">
+            <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <!-- Botón de Modo Oscuro -->
+        <button id="btn-oscuro" class="btn-flotante" onclick="controlarModoOscuro()">
+            <i class="fa-regular fa-moon"></i>
+        </button>
+    </div>
+
+
+
+    <!-- Elemento de Audio Oculto -->
+    <!-- Nota: Reemplaza el link por el archivo mp3 real de los novios -->
+    <audio id="musica-boda" loop>
+        <source src="/musica/perfect.mp3" type="audio/mpeg">
+    </audio>
+
+
+        <!-- 1. PORTADA PRINCIPAL PREMIUM (HERO) -->
+    <header class="hero">
+        <!-- Filtro translúcido para que las letras se lean perfecto sobre cualquier foto -->
+        <div class="hero-overlay"></div>
+
+        <!-- Campo de destellos ambientales (se generan por JS) -->
+        <div class="sparkle-field" id="sparkle-field"></div>
+
+        <!-- Contenedor con marco lineal de lujo -->
+        <div class="hero-frame">
+            <div class="hero-monograma">I&A</div>
+            <div class="hero-content">
+                <span class="hero-welcome">¡Nos Casamos!</span>
+                <h1>Israel & Alejandra</h1>
+                <div class="hero-divider">
+                    <span class="linea"></span>
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="linea"></span>
+                </div>
+                <span class="fecha-hero">15 . Agosto . 2026</span>
+            </div>
+        </div>
+
+        <!-- Indicador animado para deslizar hacia abajo -->
+        <div class="hero-scroll-indicator">
+            <p>Desliza para descubrir</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </header>
+
+        <!-- 2. CONTADOR EN TIEMPO REAL PREMIUM & ÚNICO -->
+    <section class="contador-premium-seccion">
+        <div class="contador-premium-header reveal">
+            <div class="icon-contador-top">
+                <i class="fa-solid fa-hourglass-half"></i>
+            </div>
+            <h2>El gran día se acerca...</h2>
+            <p>Contamos las horas para celebrar nuestro amor junto a ti.</p>
+        </div>
+        
+        <div class="timer-premium-circular">
+            <!-- Bloque Días -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="days">00</span>
+                    <p class="circle-label">días</p>
+                </div>
+            </div>
+            <!-- Bloque Horas -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="hours">00</span>
+                    <p class="circle-label">horas</p>
+                </div>
+            </div>
+            <!-- Bloque Minutos -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="minutes">00</span>
+                    <p class="circle-label">minutos</p>
+                </div>
+            </div>
+            <!-- Bloque Segundos -->
+            <div class="circle-block">
+                <div class="circle-inner">
+                    <span id="seconds">00</span>
+                    <p class="circle-label">segundos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+        <!-- 3. PADRES DE LOS NOVIOS MEJORADO -->
+    <section class="padres-premium">
+        <div class="padres-header reveal">
+            <i class="fa-solid fa-heart-custom fa-heart"></i>
+            <h2>Con la bendicion de nuestro de nuestro Dios y el consentimiento de de nuestro padres</h2>
+            <p>En el cielo y en nuestros corazones, acompañándonos hoy y por siempre con el consentimiento, la bendicion y en recuerdo de nuestros padres</p>
+        </div>
+        
+        <div class="padres-grid reveal-stagger">
+            <!-- Bloque Novia -->
+            <div class="padres-card shine-hover">
+                <div class="padres-card-border">
+                    <span class="rol-familia">Padres de la Novia</span>
+                    <h3>Antonio García González</h3>
+                    <p class="conector">&</p>
+                    <h3>Reyna Gastélum Barreras </h3>
+                </div>
+            </div>
+
+            <!-- Bloque Novio -->
+            <div class="padres-card shine-hover">
+                <div class="padres-card-border">
+                    <span class="rol-familia">Padres del Novio</span>
+                    <h3>Roberto Samano Alarcón ✝</h3>
+                    <p class="conector">&</p>
+                    <h3>Graciela Castañeda Guerrero ✝</h3>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <p class="versiculo">Y si mal os parece servir a Jehová, escogeos hoy a quién sirvais; si a los dioses a quienes sirvieron vuestros padres, cuando estuvieron al otro lado del río, o a los dioses de los amorreos en cuya tierra habitais; pero yo y mi casa serviremos a Jehová</p>
+
+    <p class="versiculo">Josué 24:15</p>    
+
+
+        <!-- 6. GALERÍA DE FOTOS INTERACTIVA PREMIUM -->
+    <section class="galeria-premium">
+        <div class="galeria-header reveal">
+            <h2>Nuestra Historia en Fotos</h2>
+            <p>Cada imagen guarda un recuerdo inolvidable que queremos compartir contigo.</p>
+        </div>
+
+        <div class="carrusel-premium reveal">
+            <div class="carrusel-marco">
+                <div class="carrusel-viewport">
+                    <div class="carrusel-pista" id="carrusel-pista">
+                        <!-- Reemplaza cada src por las fotos reales de los novios -->
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen2.jpeg')">
+                            <img src="fotos/imagen2.jpeg" alt="Momento 1">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen3.jpeg')">
+                            <img src="fotos/imagen3.jpeg" alt="Momento 2">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen4.jpeg')">
+                            <img src="fotos/imagen4.jpeg" alt="Momento 3">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen5.jpeg')">
+                            <img src="fotos/imagen5.jpeg" alt="Momento 4">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen6.jpeg')">
+                            <img src="fotos/imagen6.jpeg" alt="Momento 5">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen7.jpeg')">
+                            <img src="fotos/imagen7.jpeg" alt="Momento 6">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen8.jpeg')">
+                            <img src="fotos/imagen8.jpeg" alt="Momento 7">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen9.jpeg')">
+                            <img src="fotos/imagen9.jpeg" alt="Momento 8">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                        <div class="carrusel-slide" onclick="abrirImagen('fotos/imagen10.jpeg')">
+                            <img src="fotos/imagen10.jpeg" alt="Momento 9">
+                            <div class="foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carrusel-flecha anterior" onclick="moverCarrusel(-1)" aria-label="Foto anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carrusel-flecha siguiente" onclick="moverCarrusel(1)" aria-label="Foto siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="carrusel-puntos" id="carrusel-puntos"></div>
+        </div>
+    </section>
+
+    <!-- VISOR DE IMÁGENES EN PANTALLA COMPLETA (LIGHTBOX) -->
+    <div id="lightbox" class="lightbox-modal" onclick="cerrarImagen()">
+        <span class="lightbox-cerrar">&times;</span>
+        <img class="lightbox-contenido" id="img-lightbox" alt="Imagen ampliada">
+    </div>
+
+
+
+        <!-- 4. UBICACIONES FIESTA Y MISA PROFESIONAL -->
+    <section class="ubicaciones-premium">
+        <div class="ubicaciones-header reveal">
+            <h2>Dónde & Cuándo</h2>
+            <p>Preparamos cada detalle para que disfrutes con nosotros este gran día.</p>
+        </div>
+
+        <div class="ubicaciones-container reveal-stagger">
+            <!-- Tarjeta 1: Ceremonia -->
+            <div class="ubicacion-card shine-hover">
+                <div class="ubicacion-info">
+                    <div class="badge-ubicacion"><i class="fa-solid fa-church"></i> Ceremonia</div>
+                    <h3>Ceremonia Religiosa</h3>
+                    <div class="detalle-linea">
+                        <i class="fa-regular fa-clock"></i>
+                        <span><strong>12:30 hrs</strong></span>
+                    </div>
+                    <div class="detalle-linea">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Fracc La Vista Residencial #1108 Cond. Puerta la Vista II Jardin de la Palapa Club</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/HcmTfj1swXxonGFL6" target="_blank" class="btn btn-mapa">
+                        <i class="fa-solid fa-route"></i> Cómo llegar
+                    </a>
+                </div>
+                <div class="ubicacion-mapa">
+                    <!-- Mapa interactivo de Google Maps -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7467.4021178898!2d-100.36427892229004!3d20.6410384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b1ff998540f%3A0xcb82ed290c192e00!2sPuerta%20la%20vista%20II%20casa%20club!5e0!3m2!1ses-419!2smx!4v1785649517729!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Recepción -->
+            <div class="ubicacion-card shine-hover">
+                <div class="ubicacion-info">
+                    <div class="badge-ubicacion"><i class="fa-solid fa-champagne-glasses"></i> Recepción</div>
+                    <h3>Celebración</h3>
+                    <div class="detalle-linea">
+                        <i class="fa-regular fa-clock"></i>
+                        <span><strong>15:00 hrs</strong></span>
+                    </div>
+                    <div class="detalle-linea">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Fracc La Vista Residencial #1108 Cond. Puerta la Vista II Palapa Club</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/WSRM3qfRZdHzZ9cS6" target="_blank" class="btn btn-mapa">
+                        <i class="fa-solid fa-route"></i> Cómo llegar
+                    </a>
+                </div>
+                <div class="ubicacion-mapa">
+                    <!-- Mapa interactivo de Google Maps -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.7000962984757!2d-100.35969972610472!3d20.641077615882704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b1ff998540f%3A0xcb82ed290c192e00!2sPuerta%20la%20vista%20II%20casa%20club!5e0!3m2!1ses-419!2smx!4v1785565839824!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- 5. ITINERARIO DEL DÍA MEJORADO -->
+    <section class="itinerario">
+        <div class="reveal">
+        <h2>El Itinerario</h2>
+        <p class="sub-itinerario">Acompáñanos en cada momento de nuestro gran día</p>
+        </div>
+        
+        <div class="timeline-premium reveal-stagger">
+            <!-- Evento 1 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-church"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">13:00 hrs</span>
+                    <h3>Culto de acción de gracias</h3>
+                    <p>El momento del gran "Sí, acepto" en la parroquia.</p>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">15:00 hrs</span>
+                    <h3>Banquete de Bodas</h3>
+                    <p>Una cena especial preparada para disfrutar juntos.</p>
+                </div>
+            </div>
+
+
+
+            <!-- Evento 3 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">17:00 hrs</span>
+                    <h3>Que empiece la Fiesta!</h3>
+                    <p>Un brindis inicial y sesión de fotos con nuestros invitados.</p>
+                </div>
+            </div>
+
+            
+
+            <!-- Evento 4 -->
+            <div class="timeline-card">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-time">20:00 hrs</span>
+                    <h3>The After Party!</h3>
+                    <p>Zapatos cómodos obligatorios. ¡A bailar toda la noche!</p>
+
+                    <!-- AGREGAR ESTO: Botón y contenedor del meme -->
+                     <button class="btn-antojo" onclick="toggleMeme()">¡Se vienen cositas! 👀</button>
+                    <div id="meme-container" class="meme-oculto">
+                    <img src="fotos/imagen11.jpg" alt="Meme Elotes">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- 6. CÓDIGO DE VESTIMENTA PREMIUM -->
+    <section class="vestimenta-premium">
+        <div class="vestimenta-header reveal">
+            <div class="icon-vestimenta-top">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h2>Código de Vestimenta</h2>
+            <p class="tag-vestimenta">Traje de Cóctel</p>
+            <p class="vestimenta-sub">Agradecemos tu apoyo vistiendo de acuerdo a la etiqueta del evento.</p>
+        </div>
+
+        <div class="vestimenta-grid reveal-stagger">
+            <!-- Bloque Ellas -->
+            <div class="vestimenta-card shine-hover">
+                <div class="vestimenta-icon-box">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+                <h3>Para Ellas</h3>
+                <p>Vestido de cóctel en tonos alegres o pastel.</p>
+                <div class="nota-prohibida">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Reservar el color blanco y marfil exclusivamente para la novia.</span>
+                </div>
+            </div>
+
+            <!-- Bloque Ellos -->
+            <div class="vestimenta-card shine-hover">
+                <div class="vestimenta-icon-box">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <h3>Para Ellos</h3>
+                <p>Traje de cóctel, camisa de cuello y corbata o lazo.</p>
+                <div class="nota-permitida">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Zapatos formales de vestir obligatorios.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+       <!-- 7. MESA DE REGALOS INTERACTIVA PREMIUM -->
+    <section class="regalos-premium">
+        <div class="regalos-header reveal">
+            <div class="icon-regalos-top">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h2>Mesa de Regalos</h2>
+            <p>Tu presencia es nuestro mayor regalo, pero si deseas tener un detalle con nosotros, te compartimos nuestras opciones:</p>
+        </div>
+
+        <div class="regalos-grid reveal-stagger">
+            
+            <!-- Tarjeta 2: Transferencia (La interactiva) -->
+            <div class="regalo-card tarjeta-banco shine-hover">
+                <div class="regalo-icon-store"><i class="fa-solid fa-credit-card"></i></div>
+                <h3>Regalo en Efectivo</h3>
+                <p class="regalo-info-text">Si prefieres apoyarnos vía transferencia:</p>
+                
+                <!-- Datos Bancarios ocultos listos para copiar -->
+                <div class="datos-banco">
+                    <p><strong>Banco:</strong> BBVA</p>
+                    <p><strong>Titular:</strong> Israel Samano Castañeda </p>
+                    <div class="clabe-contenedor">
+                        <span id="clabe-numero">012 680 01526405803 9</span>
+                        <button class="btn-copiar" onclick="copiarClabe()" title="Copiar CLABE">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+        <!-- AVISO FLOTANTE DE ÉXITO (TOAST NOTIFICATION) -->
+        <div id="toast-aviso" class="toast-oculto">
+            <i class="fa-solid fa-circle-check"></i> CLABE copiada al portapapeles
+        </div>
+    </section>
+
+        <!-- 8. CONFIRMACIÓN DE ASISTENCIA Y CALENDARIO PREMIUM -->
+    <section class="confirmacion-premium">
+        <div class="confirmacion-header reveal">
+            <div class="icon-confirmacion-top">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h2>Confirmación de Asistencia</h2>
+            <p class="confirmacion-sub">Tu presencia hará nuestro día aún más especial. Por favor, confírmanos antes del 12 de agosto de 2026.</p>
+        </div>
+
+        <div class="confirmacion-container reveal-stagger">
+            <!-- Tarjeta WhatsApp -->
+            <div class="confirmacion-card flex-card">
+                <div class="confirmacion-info-box">
+                    <div class="badge-rsvp"><i class="fa-solid fa-circle-check"></i> RSVP</div>
+                    <h3>Confirmar por WhatsApp</h3>
+                    <p>Serás redirigido al chat de los novios con un mensaje personalizado para asegurar tus pases.</p>
+                    <!-- Cambia el número 521234567890 por el de tu cliente -->
+                    <a href="https://wa.link/fxvfry" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta Calendario -->
+            <div class="confirmacion-card flex-card">
+                <div class="confirmacion-info-box">
+                    <div class="badge-calendar"><i class="fa-regular fa-bell"></i> No Olvidar</div>
+                    <h3>Agendar en Calendario</h3>
+                    <p>Guarda la fecha exacta de forma nativa en tu celular para recibir una alerta automática 3 días antes.</p>
+                    <!-- Enlace exacto y optimizado para la boda del 24 de Octubre de 2026 -->
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Recordatorio%3A+Boda+de+Alejandra+e+Israel&dates=20260812/20260813&details=%C2%A1Faltan+3+d%C3%ADas+para+la+boda+de+Alejandra+e+Israel!+No+olvides+prepararte+para+la+celebraci%C3%B3n.&location=Fracc+La+Vista+Residencial+%231108+Cond.+Puerta+la+Vista+II+Palapa+Club" target="_blank" class="btn btn-calendar-premium">
+                        <i class="fa-solid fa-calendar-plus"></i> Añadir a Google Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- VINCULACIÓN DEL ARCHIVO JAVASCRIPT EXTERNO -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
